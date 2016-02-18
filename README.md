@@ -2,7 +2,7 @@
 Project for creating NativeScript app in Telerik Academy 2016.
 
 ### Overview
-The app is for all deal seakers. Find and share the best deals in markets, supermarkets, malls and on the web. List all hot deals at the moment, share new deals, share comments on deals and rate deals. Be part of an active deal seaking community.
+The app is for all deal seakers. Find and share the best deals in markets, supermarkets, malls and on the web. List all hot deals at the moment, share new deals, share comments on deals and rate deals. Be part of an active deal-seaking community.
 
 ### Features
 - List all deals shared by the community
