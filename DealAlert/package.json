@@ -1,13 +1,14 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.DealAlert",
-		"tns-android": {
-			"version": "1.5.1"
-		}
-	},
-	"dependencies": {
-		"moment": "^2.11.2",
-		"nativescript-toast": "^1.2.0",
-		"tns-core-modules": "1.5.1"
-	}
+  "nativescript": {
+    "id": "org.nativescript.DealAlert",
+    "tns-android": {
+      "version": "1.5.1"
+    }
+  },
+  "dependencies": {
+    "everlive-sdk": "^1.6.6",
+    "moment": "^2.11.2",
+    "nativescript-toast": "^1.2.0",
+    "tns-core-modules": "1.5.1"
+  }
 }
