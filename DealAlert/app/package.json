@@ -32,7 +32,6 @@
   "_id": "tns-template-hello-world@1.5.1",
   "_from": "tns-template-hello-world@1.5.1",
   "dependencies": {
-    "everlive-sdk": "^1.6.6",
     "moment": "^2.11.2",
     "nativescript-toast": "^1.2.0"
   }

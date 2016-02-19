@@ -1,0 +1,33 @@
+{
+  "name": "DealAlert",
+  "description": "NativeScript team project",
+  "main": "app.js",
+  "authors": [
+    "Obelixx",
+    "matioa"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "telerik",
+    "mobile",
+    "nativescript",
+    "{N}",
+    "tns",
+    "appbuilder",
+    "template"
+  ],
+  "homepage": "https://github.com/Obelixx/DealAlert",
+  "moduleType": [
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "everlive": "^1.6.6"
+  }
+}
