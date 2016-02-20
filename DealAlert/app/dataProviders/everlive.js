@@ -10,7 +10,7 @@ dataProvider = new Everlive({
 		onAuthenticationRequired: function() {
 			alert('Your access token has expired. Please log in.');
 			// Redirect to log-in page
-			navigationModule.navigate({moduleName:"main"});
+			navigationModule.goToMainPage();
 		}
 	}
 });
