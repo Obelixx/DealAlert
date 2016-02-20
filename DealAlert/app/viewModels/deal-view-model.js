@@ -14,16 +14,22 @@ class Deals extends observable.Observable {
 
   getDeals() {
     var data = dataProvider.data('Deals');
+    var that = this;
+
     data.get()
       .then(function(data) {
-          console.log(data.result);
-          this.dataItems = data.result;
+          for (var i = 0; i < data.result.length; i++) {
+            var newItem = data.result[i];
+            newItem.pictureUrl = 'https://bs1.cdn.telerik.com/v1/xw7rpl6g52f4b0sj/'+data.result[i].Picture;
+            that.dealItems.push(newItem);
+          }
         },
         function(error) {
           console.log(JSON.stringify(error));
         });
   }
 }
+
 
 exports.Deals = Deals;
 exports.dealsModel = new Deals();
