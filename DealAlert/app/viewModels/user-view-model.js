@@ -33,11 +33,8 @@ function User(info) {
 
     viewModel.register = function() {
         var promise = new Promise(function(resolve, reject) {
-            dataProvider.authentication.register(viewModel.userName, // username
-                viewModel.password, {
-                    Email: viewModel.email,
-                    DisplayName: viewModel.displayName
-                },
+            dataProvider.Users.register(viewModel.userName, // username
+                viewModel.password, null,
                 function(data) { // success callback
                     console.log(JSON.stringify(data));
                     resolve();
