@@ -1,0 +1,11 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
+  <StackLayout>
+  	<Label text="Deal Details View Model" class="title"/>
+  	<Button text="Load Simple Data" tap="{{ loadDataAction }}" />
+    <StackLayout orientation="horizontal">
+    	<Image src="" stretch ="none"  />
+    	<Label text="{{ title }}" textWrap="true" />
+    	<Label text="{{ description }}" textWrap="true" />
+    </StackLayout>
+  </StackLayout>
+</Page>
