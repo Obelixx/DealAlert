@@ -1,24 +1,13 @@
-// var vmModule = require("../viewModels/main-view-model");
-var userViewModel1 = require("../../viewModels/user-view-model");
+'use strict';
 
-var user = new userViewModel1();
+var vmModule = require("../../viewModels/deal-view-model");
+var view = require('ui/core/view');
+var page;
 
 function pageLoaded(args) {
-	var page = args.object;
-	// page.bindingContext = vmModule.mainViewModel;
-
-	// Temporary code for testing if the login works. TODO - remove
-	// var user = new userViewModel({email:"testuser", password:"123"});
-	user.isUserLoggedIn()
-		.then(function(resolve) {
-				//TODO: Add toast that the user is successfully logged in. 
-				console.log("super");
-			},
-			function(error) {
-				//TODO: Add toast that the user is not logged in
-				console.log(error);
-			});
-
+  page = args.object;
+  page.bindingContext = vmModule.dealsModel;
+  vmModule.dealsModel.getDeals();
 }
 
 exports.pageLoaded = pageLoaded;

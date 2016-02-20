@@ -1,7 +1,12 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
   <StackLayout>
-    <Label text="Tap the button" class="title"/>
-<!--     <Button text="TAP" tap="{{ tapAction }}" />
-    <Label text="{{ message }}" class="message" textWrap="true"/> -->
-  </StackLayout>
+	<ListView items="{{dealItems}}"
+	              itemTap="{{onItemTapped}}">
+	      <ListView.itemTemplate>
+	        <StackLayout>
+	          <Label text="{{Title}}" />
+	        </StackLayout>
+	      </ListView.itemTemplate>
+	    </ListView>
+	  </StackLayout>
 </Page>
