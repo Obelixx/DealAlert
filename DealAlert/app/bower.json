@@ -1,0 +1,19 @@
+{
+  "name": "DealAlert",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Obelixx/DealAlert",
+  "authors": [
+    "matioa <matioa@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "everlive": "~1.6.6"
+  }
+}
