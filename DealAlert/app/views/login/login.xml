@@ -4,7 +4,7 @@
     </page.actionBar> -->
     <scroll-view>
         <stack-layout id="layout">
-            <image src="res://logo" stretch="none" horizontalAlignment="center" />
+            <!-- <image src="res://logo" stretch="none" horizontalAlignment="center" /> -->
 
             <grid-layout rows="auto, auto">
                 <text-field id="email" text="{{ email }}" hint="Email Address" keyboardType="email" returnKeyType="next" returnPress="focusPassword" autocorrect="false" autocapitalizationType="none" row="0" />
@@ -13,7 +13,7 @@
             </grid-layout>
 
             <button text="Sign in" id="sign-in-button" tap="signIn" />
-            <button text="Sign up for Groceries" tap="register" class="link" />
+            <button text="Sign up" tap="register" class="link" />
             <button text="Forgot password?" tap="forgotPassword" class="link" />
         </stack-layout>
     </scroll-view>

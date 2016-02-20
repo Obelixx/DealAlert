@@ -1,12 +1,42 @@
-﻿.title {
+﻿page {
+	background-color: white;
+	font-size: 17;
+}
+
+button {
+	border-width: 1;
+	border-style: solid;
+	border-color: #034793;
+	border-radius: 2;
+	margin: 10;
+	padding: 10;
+}
+
+text-field {
+	background-color: #FAFAFA;
+	border-width: 1;
+	border-style: solid;
+	border-color: #C7C7CC;
+	border-radius: 2;
+	margin: 10;
+	padding: 10;
+}
+
+image {
+	margin-top: 20;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: 80;
+}
+
+.title {
     font-size: 30;
     horizontal-align: center;
     margin: 20;
 }
 
-button {
-    font-size: 42;
-    horizontal-align: center;
+.link {
+	border-width: 0;
 }
 
 .message {
