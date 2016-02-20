@@ -13,6 +13,9 @@ module.exports = {
 	goToMainPage: function() {
 		frameModule.topmost().navigate("views/main/main");
 	},
+	goToDealDetailsPage: function() {
+		frameModule.topmost().navigate("views/deal-details-page/deal-details-page");
+	},
 	goToListPage: function() {
 		frameModule.topmost().navigate({
 			moduleName: "views/list/list",

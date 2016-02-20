@@ -59,7 +59,7 @@ function login() {
 		.then(function(resolve) {
 			//TODO: Add toast that the user is successfully logged in. 
 			console.log('navigatin to main page');
-				navigation.goToMainPage();
+				navigation.goToDealDetailsPage();
 			},
 			function(error) {
 			//TODO: Add toast that the user is not logged in
