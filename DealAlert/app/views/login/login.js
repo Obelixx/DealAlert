@@ -2,7 +2,7 @@ var dialogsModule = require("ui/dialogs");
 // var actionBarUtil = require("../../shared/utils/action-bar-util");
 // var formUtil = require("../../shared/utils/form-util");
 var navigation = require("../../utils/navigation");
-var UserViewModel = require("../../viewModels/user-view-model");
+var UserViewModel = require("../../view-models/user-view-model");
 
 var user = new UserViewModel({
 	email: "testuser",

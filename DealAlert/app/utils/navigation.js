@@ -14,7 +14,7 @@ module.exports = {
 		frameModule.topmost().navigate("views/main/main");
 	},
 	goToDealDetailsPage: function() {
-		frameModule.topmost().navigate("views/deal-details-page/deal-details-page");
+		frameModule.topmost().navigate("views/deal-details/deal-details");
 	},
 	goToListPage: function() {
 		frameModule.topmost().navigate({

@@ -1,6 +1,6 @@
 'use strict';
 
-var vmModule = require("../../viewModels/deal-view-model");
+var vmModule = require("../../view-models/deals-view-model");
 var view = require('ui/core/view');
 var page;
 
