@@ -6,8 +6,6 @@
 		}
 	},
 	"dependencies": {
-		"moment": "^2.11.2",
-		"nativescript-toast": "^1.2.0",
 		"tns-core-modules": "1.5.2"
 	}
 }
