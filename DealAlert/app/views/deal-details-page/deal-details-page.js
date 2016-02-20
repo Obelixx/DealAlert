@@ -1,7 +1,12 @@
-var vmModule = require("../../view-models/deal-details-page-view-model");
+'use strict';
 
-function pageLoaded(args) {
+let vmModule = require("../../view-models/deal-details-page-view-model");
+
+function onLoaded(args) {
 	var page = args.object;
-    page.bindingContext = vmModule.dealDetailsViewModel;
+    page.bindingContext = vmModule.create();
 }
-exports.pageLoaded = pageLoaded;
+
+module.exports = {
+	onLoaded
+}

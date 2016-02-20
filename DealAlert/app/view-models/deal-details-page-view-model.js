@@ -1,32 +1,45 @@
-var observable = require("data/observable");
-var everlive = require("~/bower_components/everlive/min/everlive.all.min.js");
-var DealDetailsModel = (function(_super) {
-    __extends(DealDetailsModel, _super);
+'use strict';
 
-    function DealDetailsModel() {
-        _super.call(this);
-        this.set("title", "title");
-        this.set("description", "description");
+var Observable = require("data/observable").Observable;
+var dataProvider = require("../dataProviders/everlive");
+//var moment = require("../../node_modules/moment/min/moment.min");
+
+class DealDetailsModel extends Observable {
+    constructor() {
+        super();
+        this.set("title", "TITLE");
+        this.set("description", "DESCRIPTION");
+        this.set("validUntil", "validUntil");
+        this.set("promoPrice", "promoPrice");
+        this.set("regularPrice", "regularPrice");
     }
-    DealDetailsModel.prototype.loadDataAction = function() {
-        console.log("Load Data");
-        var el = new Everlive({
-            appId: 'xw7rpl6g52f4b0sj',
-            scheme: 'https'
-            token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0IjoiellKYW4zNlVmOE5hdFk2Sm9sU0M3M1V5NEhlSjZLUmJaY2lReU1HU3NpZnlYaWg5cnJ4OTNXYzVFYWRKMUpUUG9NMTdNSFY0anJSZG0yTlhsRXVhWWJqa2g4T240SkFsYTdoN0ZZdVpVbkxGNkxueUttT0JaeDJaQWZhQWY4bjJDY1dMWmRCdE1SVzhZZHlvSkJPQ1BzVE5DOXVtVzlVcjFmMjdySVdOOXQwYlFKRUFGM2J1VzVpY3dTSTZrZzl3WUFvRklCRXFIUFRiMmF1VG5XT21pb3A0Y3hOS3lFMWFTbDhHV21IdTE3bjJyNjVnNXhPTUlHZXVncG5xc3FTMyIsImV4cGlyZXMiOjE0NjExNTkyMjQsImlzc3VlciI6ImV2ZXJsaXZlIiwiaWF0IjoxNDU1OTc1MjI0fQ.ftpMn4su48ph_DsbkW_hUmKJkB3QucDtdInX5j2O-m0'
+
+    loadDataAction() {
+        let that = this;
+        let deals = dataProvider.data('Deals');
+
+        deals.get(null, function(data) {
+            console.log(JSON.stringify(data.result[0]));
+            console.log(dataProvider.appId);
+
+            let pictureSrc = "https://bs1.cdn.telerik.com/v1/xw7rpl6g52f4b0sj/" 
+                            + data.result[0].Picture;
+            that.set("pictureSrc", pictureSrc);
+            that.set("title", data.result[0].Title);
+            that.set("description", data.result[0].Description);
+            that.set("validUntil", data.result[0].ValidUntil);
+            that.set("promoPrice",  data.result[0].PromoPrice);
+            that.set("regularPrice",  data.result[0].RegularPrice);
+
+        }, function(err) {
+            console.log("error");
+            alert(err.message);
         });
+    }
+}
 
-        var deals = everlive.data('Places');
-
-        deals.get(null,function (data){
-            console.leg(JSON.stringify(data));
-        },function(error){
-            console.leg(err.message);
-        }
-        ));
-
-    };
-    return DealDetailsModel;
-})(observable.Observable);
-
-exports.dealDetailsViewModel = new DealDetailsModel();
+module.exports = {
+    create: function() {
+        return new DealDetailsModel();
+    }
+}

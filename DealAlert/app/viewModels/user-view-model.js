@@ -20,6 +20,8 @@ function User(info) {
                 viewModel.password,
                 function(data) {
                     console.log(JSON.stringify(data));
+                    // remove this
+                    //global.dataProvider.token = data;
                     resolve();
                 },
                 function(error) {
