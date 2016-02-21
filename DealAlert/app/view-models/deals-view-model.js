@@ -23,7 +23,7 @@ class Deals extends observable.Observable {
           for (var i = 0; i < itemCount; i++) {
             var newItem = data.result[i];
 
-            newItem.pictureId = data.result[i].Picture;
+            newItem.pictureUrl = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + data.result[i].Picture +'/download';
             that.dealItems.push(newItem);
           }
         },

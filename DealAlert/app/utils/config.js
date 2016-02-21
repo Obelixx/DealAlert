@@ -1,7 +1,7 @@
 var applicationSettingsModule = require("application-settings");
 
 var configObject = {
-	apiUrl: "https://api.everlive.com/v1/GWfRtXi1Lwt4jcqK/",
+	apiUrl: "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/",
 	invalidateToken: function() {
 		this.token = "";
 	}

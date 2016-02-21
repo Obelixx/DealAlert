@@ -1,0 +1,19 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
+  <StackLayout orientation="horizontal">
+  	<StackLayout orientation="vertical">
+  		<Label text="Deal title" textWrap="true" />
+  		<TextField hint="" text="{{ Title }}" />
+  		<Label text="Description" textWrap="true" />
+  		<TextField hint="" text="{{ Description }}" />
+
+  		<Label text="Description" textWrap="true" />
+  		<TextField hint="" text="{{ Description }}" />
+
+  		<Label text="Description" textWrap="true" />
+  		<TextField hint="" text="{{ Description }}" />
+  		
+  		<Label text="Description" textWrap="true" />
+  		<TextField hint="" text="{{ Description }}" />
+  	</StackLayout>
+  </StackLayout>
+</Page>
