@@ -53,6 +53,9 @@ class DealDetailsModel extends observable.Observable {
         that.set("ValidUntil", moment(item.ValidUntil).format('MMM Do YY'));
         that.set("PromoPrice", item.PromoPrice);
         that.set("RegularPrice", item.RegularPrice);
+        that.set("Discount", item.discount);
+        that.set("HotRating", item.HotRating);
+        that.set("ColdRating", item.ColdRating);
         that.set("isLoading", false);
     }
 }

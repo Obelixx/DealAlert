@@ -8,7 +8,13 @@
 	    <Label text="{{'Valid until: '+ ValidUntil }}" textWrap="true" />
 	    <Label text="{{ 'Promo price: '+ PromoPrice +'$'}}" textWrap="true" />
 	    <Label text="{{ 'Regular price: '+ RegularPrice +'$'}}" textWrap="true" />
-	    <Label text="{{ 'Discount: '+ Discount }}" textWrap="true" />
+	    <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
+	    <DockLayout stretchLastChild="true">
+	    	<Button dock="left" text="{{'Cold ('+ ColdRating +')'}}" tap="" />
+	    	<Button dock="right" text="{{'Hot ('+ HotRating +')'}}" tap="" />
+	    	<Progress value="{{ HotRating }}" maxValue="{{ HotRating+ColdRating }}" />
+	    </DockLayout>
+	    
 	  </StackLayout>
   </ScrollView>
 </Page>
