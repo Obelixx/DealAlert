@@ -2,12 +2,13 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
   <DockLayout stretchLastChild="true">
       
-	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onActivityTap">
+	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onActivityTap" itemTap="{{ onItemTap }}">
             <ListView.itemTemplate >
               <DockLayout class="activity-listViewItem">
                   <Image dock="left" src="{{ pictureUrl }}" class="activity-picture" />  
                   <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
                   <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
+                   <Label dock="top" text="{{ HotRating-ColdRating +' rating'}}" cssClass="activity-description" />
                   <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '+ 100/RegularPrice*(RegularPrice-PromoPrice) +'% discount'}}" class="activity-price" />
                   <Progress dock="top" value="{{ HotRating }}" maxValue="{{ HotRating+ColdRating }}" cssClass="activity-hot"/>
                   <Progress dock="top" value="{{ ColdRating }}" maxValue="{{ HotRating+ColdRating }}" cssClass="activity-cold" />

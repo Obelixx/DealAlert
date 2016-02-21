@@ -8,31 +8,22 @@ class DealDetailsModel extends observable.Observable {
     constructor() {
         super();
 
-
-        // this.Title = "";
-        // this.Description = "";
-        // this.ValidUntil = "";
-        // this.PictureUrl = "";
+        this.set("Title", "");
+        this.set("Description", "");
+        this.set("ValidUntil", "");
+        this.set("PromoPrice", "");
+        this.set("RegularPrice", "");
+        this.set("isLoading", false);
         // this.loadDataAction();
-        
-        this.set("Title", "TITLE");
-        this.set("Description", "DESCRIPTION");
-        this.set("ValidUntil", "validUntil");
-        this.set("PromoPrice", "promoPrice");
-        this.set("RegularPrice", "regularPrice");
-                this.loadDataAction();
     }
+
 
     loadDataAction() {
         let that = this;
         let deals = dataProvider.data('Deals');
+        that.set("isLoading", true);
 
         deals.get(null, function(data) {
-            // that.Title = data.result[0].Title;
-            // that.Description = data.result[0].Description;
-            // that.ValidUntil = moment(data.result[0].ValidUntil).format('MMM Do YY');
-            // that.PictureUrl = "https://bs1.cdn.telerik.com/v1/xw7rpl6g52f4b0sj/" + data.result[0].Picture;
-
             let pictureSrc = "https://bs1.cdn.telerik.com/v1/xw7rpl6g52f4b0sj/" + data.result[0].Picture;
             console.log(pictureSrc);
             that.set("PictureSrc", pictureSrc);
@@ -41,17 +32,30 @@ class DealDetailsModel extends observable.Observable {
             that.set("ValidUntil", moment(data.result[0].ValidUntil).format('MMM Do YY'));
             that.set("PromoPrice", data.result[0].PromoPrice);
             that.set("RegularPrice", data.result[0].RegularPrice);
+            that.set("isLoading", false);
 
         }, function(err) {
             console.log("error");
             // alert(err.message);
+            that.set("isLoading", false);
         });
+    }
+
+    loadItem(item) {
+        let that = this;
+        that.set("isLoading", true);
+
+        let pictureSrc = "https://bs1.cdn.telerik.com/v1/xw7rpl6g52f4b0sj/" + item.Picture;
+        console.log(pictureSrc);
+        that.set("PictureSrc", pictureSrc);
+        that.set("Title", item.Title);
+        that.set("Description", item.Description);
+        that.set("ValidUntil", moment(item.ValidUntil).format('MMM Do YY'));
+        that.set("PromoPrice", item.PromoPrice);
+        that.set("RegularPrice", item.RegularPrice);
+        that.set("isLoading", false);
+
     }
 }
 
 module.exports.detailModel = new DealDetailsModel();
-
-//     create: function() {
-//         return new DealDetailsModel();
-//     }
-// };

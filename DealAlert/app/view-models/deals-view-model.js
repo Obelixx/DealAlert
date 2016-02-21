@@ -4,13 +4,13 @@ var observable = require("data/observable");
 var observableArrayModule = require('data/observable-array');
 var moment = require('moment');
 var dataProvider = require("../dataProviders/everlive");
+var navigation = require("../utils/navigation");
 
 class Deals extends observable.Observable {
   constructor() {
     super();
 
     this.dealItems = new observableArrayModule.ObservableArray([]);
-    this.dealDetailItem = new observable.Observable();
   }
 
   getDeals() {
@@ -19,20 +19,23 @@ class Deals extends observable.Observable {
 
     data.get()
       .then(function(data) {
-          for (var i = 0; i < data.result.length; i++) {
+          var itemCount = data.result.length;
+          for (var i = 0; i < itemCount; i++) {
             var newItem = data.result[i];
-            newItem.pictureUrl = "https://bs1.cdn.telerik.com/v1/xw7rpl6g52f4b0sj/" + data.result[i].Picture;
-            //that.set("pictureUrl", newItem.pictureUrl);
-            that.dealItems.push(newItem);
-            console.log(JSON.stringify(newItem.Title) + " Added!");
 
+            newItem.pictureId = data.result[i].Picture;
+            that.dealItems.push(newItem);
           }
         },
         function(error) {
           console.log(JSON.stringify(error));
         });
   }
+
+  onItemTap(item) {
+    console.log(item.index);
+    navigation.goToDealDetailsPage(this.dealItems[item.index]);
+  }
 }
 
-// exports.Deals = Deals;
-// exports.dealsModel = new Deals();
+module.exports.Deals = new Deals();

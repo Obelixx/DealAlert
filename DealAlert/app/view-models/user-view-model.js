@@ -1,5 +1,6 @@
 var Observable = require("data/observable").Observable;
 var dataProvider = require("../dataProviders/everlive");
+var config = require("../utils/config");
 
 function User() {
 
@@ -24,7 +25,8 @@ function User() {
                         viewModel.userName = "";
                         viewModel.password = "";
 
-                        //global.dataProvider.token = data;
+                        config.token = data.Result.access_token;
+                        console.log(config.token);
                         resolve();
                     },
                     function(error) {

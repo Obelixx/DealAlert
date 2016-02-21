@@ -1,10 +1,11 @@
-<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded">
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
   <StackLayout>
   	<Label text="{{ Title }}" class="title"/>
     	<Image src="{{ PictureSrc }}" stretch="none"  />
+    	<activity-indicator busy="{{ isLoading }}" rowSpan="2" />
     	<Label text="{{ ValidUntil }}" textWrap="true" />
         <Label text="{{ Description }}" textWrap="true" />
-    	<Label text="{{ PromoPrice }}" textWrap="true" />
-    	<Label text="{{ RegularPrice }}" textWrap="true" />
+    	<Label text="{{ 'Promo price' + PromoPrice }}" textWrap="true" />
+    	<Label text="{{ 'Regular price' + RegularPrice }}" textWrap="true" />
   </StackLayout>
 </Page>

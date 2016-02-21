@@ -9,12 +9,16 @@ module.exports = {
 	},
 	goToPasswordPage: function() {
 		frameModule.topmost().navigate("views/password/password");
-	},	
+	},
 	goToMainPage: function() {
 		frameModule.topmost().navigate("views/main/main");
 	},
-	goToDealDetailsPage: function() {
-		frameModule.topmost().navigate("views/deal-details/deal-details");
+	goToDealDetailsPage: function(item) {
+		var navigationEntry = {
+			moduleName: "views/deal-details/deal-details",
+			context: item,
+		};
+		frameModule.topmost().navigate(navigationEntry);
 	},
 	goToListPage: function() {
 		frameModule.topmost().navigate({
