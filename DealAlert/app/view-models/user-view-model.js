@@ -72,6 +72,7 @@ function User() {
 
     viewModel.isUserLoggedIn = function() {
         console.log('entering isUserLoggedIn');
+        
         var promise = new Promise(function(resolve, reject) {
             dataProvider.users.currentUser(
                 function(data) { // success callback

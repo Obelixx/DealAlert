@@ -1,7 +1,7 @@
 <page loaded="pageLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
-<!--     <page.actionBar>
+    <page.actionBar>
         <action-bar title="Sign in" />
-    </page.actionBar> -->
+    </page.actionBar>
     <scroll-view>
         <stack-layout id="layout">
             <!-- <image src="res://logo" stretch="none" horizontalAlignment="center" /> -->

@@ -1,5 +1,7 @@
-
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
+      <page.actionBar>
+        <action-bar title="All Deals" />
+    </page.actionBar>
   <DockLayout stretchLastChild="true">
       
 	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
