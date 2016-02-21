@@ -1,8 +1,8 @@
 'use strict';
 
-var vmModule = require("../../view-models/add-detail-view-model");
+var addDealViewModel = require("../../view-models/add-detail-view-model");
 var navigation = require("../../utils/navigation");
-var model = new vmModule.AddDealViewModel();
+var model = new addDealViewModel();
 
 function pageLoaded(args) {
 	var page = args.object;
