@@ -3,15 +3,25 @@
 var navigation = require("../../utils/navigation");
 var UserViewModel = require("../../view-models/user-view-model");
 var view = require("ui/core/view");
+var activityIndicatorModule = require("ui/activity-indicator");
 
 var user = new UserViewModel();
 
 function pageLoaded(args) {
 	var page = args.object;
-	var isLoading = view.getViewById(page, "activityIndicator");
-	isLoading.busy = true;
 
-	user.isUserLoggedIn().then(function() {
+	var indicator = new activityIndicatorModule.ActivityIndicator();
+	indicator.width = 30;
+	indicator.height = 30;
+	// Bind the busy property of the indicator to the isLoading property of the image
+	indicator.bind({
+		sourceProperty: "isLoading",
+		targetProperty: "busy"
+	}, isUserLoggedIn());
+}
+
+function isUserLoggedIn(){
+user.isUserLoggedIn().then(function() {
 			navigation.goToMainPage();
 		},
 		function(error) {
