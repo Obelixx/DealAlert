@@ -33,8 +33,7 @@ class Deals extends observable.Observable {
   }
 
   onItemTap(item) {
-    console.log(item.index);
-    navigation.goToDealDetailsPage(this.dealItems[item.index]);
+    navigation.goToDealDetailsPage(this.dealItems.getItem(item.index));
   }
 }
 

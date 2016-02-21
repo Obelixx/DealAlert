@@ -3,20 +3,19 @@
 var vmModule = require("../../view-models/deals-view-model");
 var view = require('ui/core/view');
 var borderModule = require("ui/border");
-
-console.log(vmModule);
+var model = vmModule.Deals;
 
 function pageLoaded(args) {
 	var page = args.object;
-	page.bindingContext = vmModule.Deals;
+	page.bindingContext = model;
 
-	if (vmModule.Deals.dealItems.length === 0) {
-		vmModule.Deals.getDeals();
+	if (model.dealItems.length === 0) {
+		model.getDeals();
 	}
 }
 
 function onItemTap(args) {
-    vmModule.Deals.onItemTap();
+    model.onItemTap(args);
 }
 
 exports.pageLoaded = pageLoaded;

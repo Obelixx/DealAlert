@@ -17,7 +17,6 @@ class DealDetailsModel extends observable.Observable {
         // this.loadDataAction();
     }
 
-
     loadDataAction() {
         let that = this;
         let deals = dataProvider.data('Deals');

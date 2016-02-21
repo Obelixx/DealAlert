@@ -2,7 +2,7 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
   <DockLayout stretchLastChild="true">
       
-	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onActivityTap" itemTap="{{ onItemTap }}">
+	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
             <ListView.itemTemplate >
               <DockLayout class="activity-listViewItem">
                   <Image dock="left" src="{{ pictureUrl }}" class="activity-picture" />  
