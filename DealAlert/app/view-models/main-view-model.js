@@ -35,9 +35,9 @@ class Deals extends observable.Observable {
               newItem.HotColdRating = (newItem.HotRating - newItem.ColdRating) + "";
 
               if (newItem.HotColdRating > 0) {
-                newItem.HotColdRating += '°  it is HOT offer';
+                newItem.HotColdRating += '° it is HOT offer';
               } else if (newItem.HotColdRating < 0) {
-                newItem.HotColdRating += '°  it is COLD offer';
+                newItem.HotColdRating += '° it is COLD offer';
               } else {
                 newItem.HotColdRating += '°';
               }

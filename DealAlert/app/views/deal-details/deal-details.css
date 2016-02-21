@@ -27,6 +27,19 @@
     font-style: italic;
 }
 
+.activity-hot{
+    color: red;
+}
+
+.activity-cold{
+    color: blue;
+}
+
+.activity-hotColdStatus {
+    font-size: 20;
+    text-align: center;
+}
+
 .comment-text {
     font-size: 13;
 }

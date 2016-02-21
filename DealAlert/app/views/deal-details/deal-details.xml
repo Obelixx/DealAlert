@@ -11,18 +11,22 @@
   <ScrollView>
 	  <StackLayout>
 	  	<Label text="{{ Title }}" class="title"/>
-	  	<Image horizontalAlignment="center" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" />
+	  	<DockLayout stretchLastChild="false">
+	  		<Image dock="left" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" />
+	  		<Label dock="top" text="{{ HotColdRating }}" textWrap="true" class="activity-hotColdStatus" />
+	    	<Button dock="top" text="{{'Hot ('+ HotRating +')'}}" tap="onTapHot" class="activity-hot" />
+	    	<Button dock="top" text="{{'Cold ('+ ColdRating +')'}}" tap="onTapCold" class="activity-cold" />
+
+	    	
+	    </DockLayout>
+	  	
 	   	<activity-indicator busy="{{ isLoading }}" rowSpan="2" />
 	   	<Label text="{{ Description }}" textWrap="true" class="activity-description" />
 	    <Label text="{{'Valid until: '+ ValidUntil }}" textWrap="true" />
 	    <Label text="{{ 'Promo price: '+ PromoPrice +'$'}}" textWrap="true" />
 	    <Label text="{{ 'Regular price: '+ RegularPrice +'$'}}" textWrap="true" />
 	    <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
-	    <DockLayout stretchLastChild="true">
-	    	<Button dock="left" text="{{'Cold ('+ ColdRating +')'}}" tap="onTapCold" />
-	    	<Button dock="right" text="{{'Hot ('+ HotRating +')'}}" tap="onTapHot" />
-	    	<Progress value="{{ HotRating }}" maxValue="{{ HotRating+ColdRating }}" />
-	    </DockLayout>
+	    
 	    
 	  </StackLayout>
   </ScrollView>

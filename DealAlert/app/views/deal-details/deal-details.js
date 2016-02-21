@@ -2,6 +2,8 @@
 
 var navigation = require("../../utils/navigation");
 var vmModule = require("../../view-models/deal-details-page-view-model");
+var view = require("ui/core/view");
+var progressModule = require("ui/progress");
 var model = vmModule.detailModel;
 
 function onNavigatedTo(args) {
@@ -21,6 +23,7 @@ function onTapCold(){
 function onTapHot(){
 	model.onTapHot();
 }
+
 
 exports.onNavigatedTo = onNavigatedTo;
 exports.onNavBtnTap = onNavBtnTap;
