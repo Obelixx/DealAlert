@@ -42,7 +42,7 @@ class Deals extends observable.Observable {
                 newItem.HotColdRating += '°';
               }
             }
-            
+
             console.log(JSON.stringify(newItem.Title) + ' Added!');
             that.dealItems.push(newItem);
           }

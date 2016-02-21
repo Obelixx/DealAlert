@@ -18,15 +18,12 @@ function User() {
             } else {
                 viewModel.isLoading = true;
 
-                dataProvider.authentication.login(viewModel.userName, // username
-                    viewModel.password,
+                dataProvider.authentication.login(viewModel.get('userName'), viewModel.get('password'),
                     function(data) {
                         viewModel.isLoading = false;
                         viewModel.userName = "";
                         viewModel.password = "";
 
-                        config.token = data.Result.access_token;
-                        console.log(config.token);
                         resolve();
                     },
                     function(error) {

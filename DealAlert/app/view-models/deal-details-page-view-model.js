@@ -2,7 +2,8 @@
 
 var observable = require("data/observable");
 var dataProvider = require("../dataProviders/everlive");
-var moment = require("../node_modules/moment/moment");
+// var moment = require("../../node_modules/moment/moment");
+var moment = require("moment");
 
 class DealDetailsModel extends observable.Observable {
     constructor() {
@@ -53,7 +54,6 @@ class DealDetailsModel extends observable.Observable {
         that.set("PromoPrice", item.PromoPrice);
         that.set("RegularPrice", item.RegularPrice);
         that.set("isLoading", false);
-
     }
 }
 

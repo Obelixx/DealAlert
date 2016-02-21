@@ -12,7 +12,8 @@ function pageLoaded(args) {
 function login() {
 	user.login().then(function() {
 		//TODO TOAST
-			navigation.goToDealDetailsPage();
+		console.log('here');
+			navigation.goToAddDealPage();
 		},
 		function(error) {
 			alert(error);

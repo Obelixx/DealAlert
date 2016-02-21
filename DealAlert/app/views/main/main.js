@@ -13,11 +13,9 @@ function pageLoaded(args) {
 	}
 }
 
-
 function onItemTap(args) {
     model.onItemTap(args);
 }
-
 
 exports.pageLoaded = pageLoaded;
 exports.onItemTap = onItemTap;

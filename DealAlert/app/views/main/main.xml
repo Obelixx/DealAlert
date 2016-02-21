@@ -5,7 +5,7 @@
 	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
             <ListView.itemTemplate >
               <DockLayout class="activity-listViewItem">
-                  <Image dock="left" src="{{ pictureUrl }}" class="activity-picture" />  
+                  <Image dock="left" src="{{ pictureUrl }}" class="activity_picture" stretch="aspectFil" />  
                   <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
                   <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
 
