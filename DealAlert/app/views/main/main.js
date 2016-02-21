@@ -13,6 +13,7 @@ function pageLoaded(args) {
 	}
 }
 
+
 function onItemTap(args) {
     model.onItemTap(args);
 }

@@ -21,5 +21,10 @@ function addDeal(){
 }
 
 
+function cancel(){
+	navigation.goToMainPage();
+}
+
 exports.pageLoaded = pageLoaded;
 exports.addDeal = addDeal;
+exports.cancel = cancel;

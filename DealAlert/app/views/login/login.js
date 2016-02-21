@@ -5,6 +5,14 @@ var UserViewModel = require("../../view-models/user-view-model");
 var user = new UserViewModel();
 
 function pageLoaded(args) {
+	user.isUserLoggedIn().then(function() {
+		//TODO TOAST
+			navigation.goToAddDealPage();
+		},
+		function(error) {
+			alert(error);
+		});
+
 	var page = args.object;
 	page.bindingContext = user;
 }
@@ -12,7 +20,6 @@ function pageLoaded(args) {
 function login() {
 	user.login().then(function() {
 		//TODO TOAST
-		console.log('here');
 			navigation.goToAddDealPage();
 		},
 		function(error) {

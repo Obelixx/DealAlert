@@ -1,18 +1,24 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <StackLayout orientation="horizontal">
+      <page.actionBar>
+        <action-bar title="Add New Deal" />
+    </page.actionBar>
+  <StackLayout orientation="horizontal" stretch="">
   	<StackLayout orientation="vertical">
 
   		<Label text="Deal title" textWrap="true" />
-  		<TextField hint="" text="{{ title }}" />
+  		<TextField hint="" text="{{ title }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none"/>
 
   		<Label text="Description" textWrap="true" />
-  		<TextField hint="" text="{{ description }}" />
+  		<TextField hint="" text="{{ description }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none"/>
 
   		<Label text="Valid until" textWrap="true" />
       <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}"></DatePicker>
 
-      <Button text="Save" tap="addDeal" />
-      
+      <StackLayout orientation="horizontal">
+        <Button text="Cancel" tap="cancel" />
+        <Button text="Save" tap="addDeal" />
+      </StackLayout>
+
   	</StackLayout>
   </StackLayout>
 </Page>
