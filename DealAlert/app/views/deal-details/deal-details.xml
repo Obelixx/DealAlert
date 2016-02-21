@@ -2,12 +2,13 @@
   <ScrollView>
 	  <StackLayout>
 	  	<Label text="{{ Title }}" class="title"/>
-	    	<Image src="{{ PictureSrc }}" stretch="none"  />
-	    	<activity-indicator busy="{{ isLoading }}" rowSpan="2" />
-	    	<Label text="{{ ValidUntil }}" textWrap="true" />
-	        <Label text="{{ Description }}" textWrap="true" />
-	    	<Label text="{{ 'Promo price' + PromoPrice }}" textWrap="true" />
-	    	<Label text="{{ 'Regular price' + RegularPrice }}" textWrap="true" />
+	  	<Image horizontalAlignment="center" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" />
+	   	<activity-indicator busy="{{ isLoading }}" rowSpan="2" />
+	   	<Label text="{{ Description }}" textWrap="true" class="activity-description" />
+	    <Label text="{{'Valid until: '+ ValidUntil }}" textWrap="true" />
+	    <Label text="{{ 'Promo price: '+ PromoPrice +'$'}}" textWrap="true" />
+	    <Label text="{{ 'Regular price: '+ RegularPrice +'$'}}" textWrap="true" />
+	    <Label text="{{ 'Discount: '+ Discount }}" textWrap="true" />
 	  </StackLayout>
   </ScrollView>
 </Page>
