@@ -1,8 +1,7 @@
 'use strict';
 
-var vmModule = require("../../view-models/deals-view-model");
+var vmModule = require("../../view-models/main-view-model");
 var view = require('ui/core/view');
-var borderModule = require("ui/border");
 var model = vmModule.Deals;
 
 function pageLoaded(args) {
@@ -18,6 +17,7 @@ function pageLoaded(args) {
 function onItemTap(args) {
     model.onItemTap(args);
 }
+
 
 exports.pageLoaded = pageLoaded;
 exports.onItemTap = onItemTap;
