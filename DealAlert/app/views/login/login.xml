@@ -1,4 +1,4 @@
-<page loaded="loaded" xmlns="http://schemas.nativescript.org/tns.xsd">
+<page loaded="pageLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
 <!--     <page.actionBar>
         <action-bar title="Sign in" />
     </page.actionBar> -->
@@ -7,12 +7,13 @@
             <!-- <image src="res://logo" stretch="none" horizontalAlignment="center" /> -->
 
             <grid-layout rows="auto, auto">
-                <text-field id="email" text="{{ email }}" hint="Email Address" keyboardType="email" returnKeyType="next" returnPress="focusPassword" autocorrect="false" autocapitalizationType="none" row="0" />
-                <text-field id="password" secure="true" text="{{ password }}" hint="Password" returnKeyType="done" returnPress="signIn" row="1" />
-                <activity-indicator busy="{{ authenticating }}" rowSpan="2" />
+                <text-field id="email" text="{{ userName }}" hint="Email Address" keyboardType="email" returnKeyType="next" returnPress="focusPassword" autocorrect="false" autocapitalizationType="none" row="0" />
+                <text-field id="password" secure="true" text="{{ password }}" hint="Password" returnKeyType="done" returnPress="login" row="1" />
+                
+                <activity-indicator busy="{{ isLoading }}" rowSpan="2" />
             </grid-layout>
 
-            <button text="Sign in" id="sign-in-button" tap="signIn" />
+            <button text="Sign in" id="sign-in-button" tap="login" />
             <button text="Sign up" tap="register" class="link" />
             <button text="Forgot password?" tap="forgotPassword" class="link" />
         </stack-layout>

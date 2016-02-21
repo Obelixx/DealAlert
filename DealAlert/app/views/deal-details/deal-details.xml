@@ -1,16 +1,10 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded">
   <StackLayout>
-  	<Label text="Deal Details View Model" class="title"/>
-  	<Button text="Load Simple Data" tap="{{ loadDataAction }}" />
-    <StackLayout orientation="horizontal">
-    	<Image src="{{ pictureSrc }}" stretch ="none"  />
-    	<StackLayout>
-  	  		<Label text="{{ title }}" textWrap="true" />
-    		<Label text="{{ description }}" textWrap="true" />
-    		<Label text="{{ validUntil }}" textWrap="true" />
-    		<Label text="{{ promoPrice }}" textWrap="true" />
-    		<Label text="{{ regularPrice }}" textWrap="true" />
-    	</StackLayout>
-    </StackLayout>
+  	<Label text="{{ Title }}" class="title"/>
+    	<Image src="{{ PictureSrc }}" stretch="none"  />
+    	<Label text="{{ ValidUntil }}" textWrap="true" />
+        <Label text="{{ Description }}" textWrap="true" />
+    	<Label text="{{ PromoPrice }}" textWrap="true" />
+    	<Label text="{{ RegularPrice }}" textWrap="true" />
   </StackLayout>
 </Page>

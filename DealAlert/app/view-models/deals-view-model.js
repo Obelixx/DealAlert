@@ -10,6 +10,7 @@ class Deals extends observable.Observable {
     super();
 
     this.dealItems = new observableArrayModule.ObservableArray([]);
+    this.dealDetailItem = new observable.Observable();
   }
 
   getDeals() {
@@ -29,7 +30,6 @@ class Deals extends observable.Observable {
         });
   }
 }
-
 
 exports.Deals = Deals;
 exports.dealsModel = new Deals();

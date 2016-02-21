@@ -1,48 +1,54 @@
-// var config = require("../../shared/config");
 var Observable = require("data/observable").Observable;
-// var validator = require("email-validator");
 var dataProvider = require("../dataProviders/everlive");
 
-function User(info) {
-    info = info || {};
+function User() {
 
     // You can add properties to observables on creation
     var viewModel = new Observable({
-        userName: info.userName || "test",
-        email: info.email || "testuser",
-        password: info.password || "123",
-        displayName: info.displayName || "Test user",
+        userName: "",
+        password: "",
+        isLoading: false
     });
 
     viewModel.login = function() {
-        var promise = new Promise(function(resolve, reject) {
-            dataProvider.authentication.login(viewModel.email, // username
-                viewModel.password,
-                function(data) {
-                    console.log(JSON.stringify(data));
-                    // remove this
-                    //global.dataProvider.token = data;
-                    resolve();
-                },
-                function(error) {
-                    console.log(JSON.stringify(error));
-                    reject(error.message);
-                });
-        });
+        return new Promise(function(resolve, reject) {
+            if (!viewModel.userName || !viewModel.password) {
+                reject('Invalid input');
+            } else {
+                viewModel.isLoading = true;
 
-        return promise;
+                dataProvider.authentication.login(viewModel.userName, // username
+                    viewModel.password,
+                    function(data) {
+                        viewModel.isLoading = false;
+                        viewModel.userName = "";
+                        viewModel.password = "";
+
+                        //global.dataProvider.token = data;
+                        resolve();
+                    },
+                    function(error) {
+                        viewModel.isLoading = false;
+                        reject(error.message);
+                    });
+            }
+        });
     };
 
     viewModel.register = function() {
         var promise = new Promise(function(resolve, reject) {
+            viewModel.isLoading = true;
+
             dataProvider.Users.register(viewModel.userName, // username
                 viewModel.password, null,
                 function(data) { // success callback
+                    viewModel.isLoading = false;
                     console.log(JSON.stringify(data));
                     resolve();
                 },
                 function(error) { // error callback
                     console.log(JSON.stringify(error));
+                    viewModel.isLoading = false;
                     reject(error.message);
                 });
         });
