@@ -4,6 +4,7 @@ var observable = require("data/observable");
 var dataProvider = require("../dataProviders/everlive");
 
 var moment = require("moment");
+var thisItem,that;
 
 class DealDetailsModel extends observable.Observable {
     constructor() {
@@ -18,10 +19,11 @@ class DealDetailsModel extends observable.Observable {
     }
 
     loadItem(item) {
-        let that = this;
+        that = this;
+        thisItem = item;
         that.set("isLoading", true);
 
-        let pictureSrc = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + item.Picture +'/download';
+        let pictureSrc = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + item.Picture + '/download';
         that.set("PictureSrc", pictureSrc);
         that.set("Title", item.Title);
         that.set("Description", item.Description);
@@ -32,6 +34,27 @@ class DealDetailsModel extends observable.Observable {
         that.set("HotRating", item.HotRating);
         that.set("ColdRating", item.ColdRating);
         that.set("isLoading", false);
+    }
+
+    onTapHot() {
+        let newRate = that.get("HotRating");
+        newRate +=1;
+        //console.log(thisItem.id);
+        dataProvider.data('Deals').updateSingle({
+                Id: thisItem.id,
+                'HotRating': newRate
+            },
+            function(data) {
+                that.set("HotRating", newRate);
+                alert(JSON.stringify(data));
+            },
+            function(error) {
+                alert(JSON.stringify(error));
+            });
+
+    }
+
+    onTapCold(args) {
     }
 }
 

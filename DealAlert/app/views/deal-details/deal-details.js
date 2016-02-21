@@ -9,4 +9,15 @@ function onNavigatedTo(args) {
 	model.loadItem(args.context);
 }
 
+function onTapCold(){
+	model.onTapCold();
+}
+
+function onTapHot(){
+	model.onTapHot();
+}
+
+
 exports.onNavigatedTo = onNavigatedTo;
+exports.onTapCold = onTapCold;
+exports.onTapHot = onTapHot;
