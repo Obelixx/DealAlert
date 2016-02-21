@@ -1,7 +1,13 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
-      <page.actionBar>
-        <action-bar title="All Deals" />
-    </page.actionBar>
+<Page.actionBar>
+    <ActionBar title="All Deals" icon="">
+      <NavigationButton text="Back" icon="" tap="" />
+      <ActionBar.actionItems>
+        <ActionItem icon="" text="Left" tap="" ios.position="left" />
+        <ActionItem icon="" text="Right" tap="" ios.position="right" />
+      </ActionBar.actionItems>
+    </ActionBar>
+</Page.actionBar>
   <DockLayout stretchLastChild="true">
       
 	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
