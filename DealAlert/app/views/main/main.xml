@@ -8,10 +8,10 @@
                   <Image dock="left" src="{{ pictureUrl }}" class="activity-picture" />  
                   <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
                   <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
-                   <Label dock="top" text="{{ HotRating-ColdRating +' rating'}}" cssClass="activity-description" />
-                  <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '+ 100/RegularPrice*(RegularPrice-PromoPrice) +'% discount'}}" class="activity-price" />
-                  <Progress dock="top" value="{{ HotRating }}" maxValue="{{ HotRating+ColdRating }}" cssClass="activity-hot"/>
-                  <Progress dock="top" value="{{ ColdRating }}" maxValue="{{ HotRating+ColdRating }}" cssClass="activity-cold" />
+
+                  <Label dock="top" text="{{ HotColdRating }}" id="LabelHotColdRating"/>
+
+                  <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '+ discount +'% discount'}}" class="activity-price" />
               </DockLayout>
             </ListView.itemTemplate>  
       </ListView>
