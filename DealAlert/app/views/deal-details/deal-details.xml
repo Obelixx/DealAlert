@@ -19,8 +19,8 @@
 	    <Label text="{{ 'Regular price: '+ RegularPrice +'$'}}" textWrap="true" />
 	    <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
 	    <DockLayout stretchLastChild="true">
-	    	<Button dock="left" text="{{'Cold ('+ ColdRating +')'}}" tap="" />
-	    	<Button dock="right" text="{{'Hot ('+ HotRating +')'}}" tap="" />
+	    	<Button dock="left" text="{{'Cold ('+ ColdRating +')'}}" tap="onTapCold" />
+	    	<Button dock="right" text="{{'Hot ('+ HotRating +')'}}" tap="onTapHot" />
 	    	<Progress value="{{ HotRating }}" maxValue="{{ HotRating+ColdRating }}" />
 	    </DockLayout>
 	    

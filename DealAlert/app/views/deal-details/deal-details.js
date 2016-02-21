@@ -14,5 +14,15 @@ function onNavBtnTap(){
 	navigation.goBack();
 }
 
+function onTapCold(){
+	model.onTapCold();
+}
+
+function onTapHot(){
+	model.onTapHot();
+}
+
 exports.onNavigatedTo = onNavigatedTo;
 exports.onNavBtnTap = onNavBtnTap;
+exports.onTapCold = onTapCold;
+exports.onTapHot = onTapHot;
