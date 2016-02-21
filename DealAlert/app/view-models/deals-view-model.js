@@ -2,7 +2,7 @@
 
 var observable = require("data/observable");
 var observableArrayModule = require('data/observable-array');
-var moment = require('moment');
+//var moment = require('moment');
 var dataProvider = require("../dataProviders/everlive");
 var navigation = require("../utils/navigation");
 
