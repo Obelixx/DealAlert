@@ -1,37 +1,18 @@
+
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <StackLayout>
-<!-- 	<ListView items="{{dealItems}}"
-	              itemTap="{{onItemTapped}}">
-	      <ListView.itemTemplate>
-	        <StackLayout>
-	          <Label text="{{Title}}" />
-	        </StackLayout>
-	      </ListView.itemTemplate>
-	    </ListView> -->
-
-	    <ListView id="activitiesView" items="{{ dealItems }}" itemTap="onActivityTap">
-            <ListView.itemTemplate>
-                <GridLayout columns="auto, *" >
-                    <StackLayout>
-                        <Image src="{{ avatarImageSource || defaultAvatarImageSource }}" stretch="fill" cssClass="activity-avatar"/>
-                    </StackLayout>
-                    <StackLayout cssClass="activity-container" col="1">
-                        <Label cssClass="activity-name">
-                            <Label.formattedText>
-                                <FormattedString>
-                                  <FormattedString.spans>
-                                    <Span text="{{ Title }}" fontAttributes="Bold" />
-                                  </FormattedString.spans>
-                                </FormattedString>
-                              </Label.formattedText>
-                        </Label>
-                        <Label text="{{ Description }}" cssClass="activity-summary" textWrap="true"/>
-                        <Image src="{{ pictureUrl }}" cssClass="activity-picture android" stretch="aspectFit" />
-                        <Label text="{{ CreatedAt, CreatedAt | dateConverter('DD.MM.YYYY') }}" cssClass="activity-date"/>
-                  </StackLayout>
-                </GridLayout> 
+  <DockLayout stretchLastChild="true">
+      
+	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onActivityTap">
+            <ListView.itemTemplate >
+              <DockLayout class="activity-listViewItem">
+                  <Image dock="left" src="{{ pictureUrl }}" class="activity-picture" />  
+                  <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
+                  <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
+                  <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '+ 100/RegularPrice*(RegularPrice-PromoPrice) +'% discount'}}" class="activity-price" />
+                  <Progress dock="top" value="{{ HotRating }}" maxValue="{{ HotRating+ColdRating }}" cssClass="activity-hot"/>
+                  <Progress dock="top" value="{{ ColdRating }}" maxValue="{{ HotRating+ColdRating }}" cssClass="activity-cold" />
+              </DockLayout>
             </ListView.itemTemplate>  
-        </ListView>
-
-	  </StackLayout>
+      </ListView>
+	</DockLayout>
 </Page>

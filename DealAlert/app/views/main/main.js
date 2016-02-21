@@ -1,15 +1,15 @@
 'use strict';
 
-var vmModule = require("../../view-models/deals-view-model");
+var vmModule = require("../../view-models/deals-view-model").create();
 var view = require('ui/core/view');
-var page;
+var borderModule = require("ui/border");
 
 function pageLoaded(args) {
-	page = args.object;
-	page.bindingContext = vmModule.dealsModel;
+	var page = args.object;
+	page.bindingContext = vmModule;
 
-	if (vmModule.dealsModel.dealItems.length === 0) {
-		vmModule.dealsModel.getDeals();
+	if (vmModule.dealItems.length == 0) {
+		vmModule.getDeals();
 	}
 }
 
