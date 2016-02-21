@@ -3,7 +3,7 @@
 var vmModule = require("../../view-models/deals-view-model");
 var view = require('ui/core/view');
 var borderModule = require("ui/border");
-var vmModelDeals = vmModule.Deals;
+var model = vmModule.Deals;
 
 function pageLoaded(args) {
 	var page = args.object;
@@ -16,7 +16,7 @@ function pageLoaded(args) {
 
 
 function onItemTap(args) {
-    vmModelDeals.onItemTap(args);
+    model.onItemTap(args);
 }
 
 exports.pageLoaded = pageLoaded;
