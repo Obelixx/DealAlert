@@ -1,19 +1,20 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo">
   <StackLayout orientation="horizontal">
   	<StackLayout orientation="vertical">
+
   		<Label text="Deal title" textWrap="true" />
-  		<TextField hint="" text="{{ Title }}" />
-  		<Label text="Description" textWrap="true" />
-  		<TextField hint="" text="{{ Description }}" />
+  		<TextField hint="www" text="{{ title }}" />
 
-  		<Label text="Description" textWrap="true" />
-  		<TextField hint="" text="{{ Description }}" />
+<!--   		<Label text="Description" textWrap="true" />
+  		<TextField hint="" text="{{ description }}" />
 
-  		<Label text="Description" textWrap="true" />
-  		<TextField hint="" text="{{ Description }}" />
-  		
-  		<Label text="Description" textWrap="true" />
-  		<TextField hint="" text="{{ Description }}" />
+  		<Label text="Valid until" textWrap="true" />
+      <DatePicker day="{{ Day }}" month="{{ Month }}" year="{{ Year }}"></DatePicker> -->
+
+      <Button text="Save" tap="addDeal" />
+      
   	</StackLayout>
   </StackLayout>
 </Page>
+
+
