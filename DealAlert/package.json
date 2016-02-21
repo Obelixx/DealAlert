@@ -1,12 +1,14 @@
 {
-	"nativescript": {
-		"id": "org.nativescript.DealAlert",
-		"tns-android": {
-			"version": "1.5.1"
-		}
-	},
-	"dependencies": {
-		"dealsAlert-app-options": "file:app_options",
-		"tns-core-modules": "1.5.2"
-	}
+  "nativescript": {
+    "id": "org.nativescript.DealAlert",
+    "tns-android": {
+      "version": "1.5.1"
+    }
+  },
+  "dependencies": {
+    "dealsAlert-app-options": "file:app_options",
+    "moment": "^2.11.2",
+    "nativescript-toast": "^1.2.0",
+    "tns-core-modules": "1.5.2"
+  }
 }

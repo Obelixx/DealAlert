@@ -2,7 +2,7 @@
 
 var observable = require("data/observable");
 var dataProvider = require("../dataProviders/everlive");
-var moment = require("../node_modules/moment/moment");
+var moment = require("moment");
 
 class DealDetailsModel extends observable.Observable {
     constructor() {
