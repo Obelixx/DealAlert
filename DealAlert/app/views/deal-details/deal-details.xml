@@ -5,10 +5,10 @@
         </ActionBar>
     </Page.actionBar>
     <ScrollView>
-        <StackLayout>
+        <StackLayout id="stack">
             <Label text="{{ Title }}" class="title" />
-            <DockLayout stretchLastChild="false">
-                <Image dock="left" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" />
+            <DockLayout stretchLastChild="false" id="dock">
+                <Image dock="left" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" id="imageElement"/>
                 <Label dock="top" text="{{ HotColdRating }}" textWrap="true" class="activity-hotColdStatus" />
 <!--                 <Button dock="top" text="{{'Hot ('+ HotRating +')'}}" tap="onTapHot" class="activity-hot" /> -->
                 <Button dock="top" id="hotBtn" text="HOT" tap="onTapHot" class="activity-hot" />
