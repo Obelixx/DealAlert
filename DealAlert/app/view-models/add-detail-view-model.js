@@ -11,7 +11,7 @@ function NewDeal() {
         title: "",
         description: "",
         day: currentTime.getDate(),
-        month: currentTime.getMonth()+1,
+        month: currentTime.getMonth() + 1,
         year: currentTime.getFullYear(),
         picture: "",
         pictureUrl: "",
@@ -28,6 +28,10 @@ function NewDeal() {
         return new Promise(function(resolve, reject) {
             viewModel.isLoading = true;
 
+            if (viewModel.get('picture') === '') {
+                viewModel.isLoading = false;
+                reject('You cannot post deal without picture!');
+            }
             var file = {
                 "Filename": Math.random().toString(36).substring(2, 15) + ".jpg",
                 "ContentType": "image/jpeg",
@@ -75,18 +79,11 @@ function NewDeal() {
                             viewModel.isLoading = false;
                             reject(error.message);
                         });
-
-
                 },
                 function(error) {
                     console.log(JSON.stringify(error));
                     viewModel.isLoading = false;
                 });
-
-            console.log(viewModel.get("title"));
-            console.log(viewModel.get("description"));
-
-
         });
     };
 
