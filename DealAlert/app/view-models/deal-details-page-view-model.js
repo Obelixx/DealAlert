@@ -17,6 +17,7 @@ class DealDetailsModel extends observable.Observable {
         this.set("PictureUrl", "");
         this.set("PromoPrice", "");
         this.set("RegularPrice", "");
+                this.set("Comments", "");
         this.set("isLoading", false);
         this.set("Discount", 0);
 
@@ -39,6 +40,7 @@ class DealDetailsModel extends observable.Observable {
         that.set("HotRating", item.HotRating);
         that.set("ColdRating", item.ColdRating);
         that.set("HotColdRating", item.HotColdRating);
+        that.set("Comments", item.Comments);
     }
 
     onTapHot() {

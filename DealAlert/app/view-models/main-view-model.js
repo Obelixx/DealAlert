@@ -2,9 +2,9 @@
 
 var observable = require("data/observable");
 var observableArrayModule = require('data/observable-array');
-//var moment = require('moment');
 var dataProvider = require("../dataProviders/everlive");
 var navigation = require("../utils/navigation");
+var Everlive = require('../bower_components/everlive/min/everlive.all.min');
 
 class Deals extends observable.Observable {
   constructor() {
@@ -17,13 +17,15 @@ class Deals extends observable.Observable {
     var data = dataProvider.data('Deals');
     var that = this;
 
-    data.get()
+    var expandExp = {"Commnets.DealId": {ReturnAs:'Comments'}};
+    var query = new Everlive.Query();
+    query.expand(expandExp);
+    data.get(query)
       .then(function(data) {
+        console.log(JSON.stringify(data));
           var itemCount = data.result.length;
           for (var i = 0; i < itemCount; i++) {
             var newItem = data.result[i];
-
-            // newItem.pictureUrl = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + data.result[i].Picture + '/download';
 
             // calculations
             newItem.discount = Math.round(100 / newItem.RegularPrice * (newItem.RegularPrice - newItem.PromoPrice));

@@ -21,5 +21,6 @@
             <Label text="Validity" textWrap="true" row="6" col="0" verticalAlignment="center" />
             <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}" row="6" col="1"></DatePicker>
         </GridLayout>
+
     </ScrollView>
 </Page>

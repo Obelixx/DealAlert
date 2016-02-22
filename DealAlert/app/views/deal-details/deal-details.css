@@ -48,3 +48,9 @@
     color: #E91E63;
     font-size: 13;
 }
+
+.comments-title{
+    margin-top: 5;
+        font-size: 15;
+    font-weight: bold;
+}
