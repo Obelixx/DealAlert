@@ -2,10 +2,18 @@ var frameModule = require("ui/frame");
 
 module.exports = {
 	goToLoginPage: function() {
-		frameModule.topmost().navigate("views/login/login");
+		var navigationEntry = {
+			moduleName: "views/login/login",
+			backstackVisible: false
+		};
+		frameModule.topmost().navigate(navigationEntry);
 	},
 	goToRegisterPage: function() {
-		frameModule.topmost().navigate("views/register/register");
+		var navigationEntry = {
+			moduleName: "views/register/register",
+			backstackVisible: false
+		};
+		frameModule.topmost().navigate(navigationEntry);
 	},
 	goToPasswordPage: function() {
 		frameModule.topmost().navigate("views/password/password");
@@ -14,7 +22,11 @@ module.exports = {
 		frameModule.topmost().navigate("views/main/main");
 	},
 	goToAddDealPage: function() {
-		frameModule.topmost().navigate("views/add-deal/add-deal");
+		var navigationEntry = {
+			moduleName: "views/add-deal/add-deal",
+			backstackVisible: false
+		};
+		frameModule.topmost().navigate(navigationEntry);
 	},
 	goToDealDetailsPage: function(item) {
 		var navigationEntry = {
