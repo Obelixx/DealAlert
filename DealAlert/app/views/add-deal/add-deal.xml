@@ -9,16 +9,17 @@
         </ActionBar>
     </Page.actionBar>
     <ScrollView>
-
-        <GridLayout rows="auto, auto, auto, auto,auto,auto" columns="*, 2*" >
-            <Image id="pictureTaken" src="" tap="takePicture" stretch="none" row="0" colSpan="2"  horizontalAlignment="center"/>
+        <GridLayout rows="auto, auto, auto, auto,auto,auto,auto" columns="*, 2*">
+            <Image id="pictureTaken" src="" tap="takePicture" stretch="none" row="0" colSpan="2" horizontalAlignment="center" />
             <activity-indicator busy="{{ isLoading }}" row="1" colSpan="2" />
-
             <TextField hint="Title" text="{{ title }}" row="2" colSpan="2" />
-
             <TextField hint="Description" text="{{ description }}" row="3" colSpan="2" />
-            <Label text="Validity" textWrap="true" row="4" col="0" verticalAlignment="center"/>
-            <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}" row="4" col="1"></DatePicker>
+            <Label text="Regular price" textWrap="true" row="4" col="0" verticalAlignment="center" horizontalAlignment="center" />
+            <TextField hint="" text="{{ regularPrice }}" row="4" col="1" />
+            <Label text="Promo price" textWrap="true" row="5" col="0" verticalAlignment="center" horizontalAlignment="center" />
+            <TextField hint="" text="{{ promoPrice }}" row="5" col="1" />
+            <Label text="Validity" textWrap="true" row="6" col="0" verticalAlignment="center" />
+            <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}" row="6" col="1"></DatePicker>
         </GridLayout>
     </ScrollView>
 </Page>
