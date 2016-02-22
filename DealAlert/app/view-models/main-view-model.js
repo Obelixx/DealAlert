@@ -19,7 +19,7 @@ class Deals extends observable.Observable {
 
     var expandExp = {"Commnets.DealId": {ReturnAs:'Comments'}};
     var query = new Everlive.Query();
-    query.expand(expandExp);
+    query.orderDesc('HotRating').expand(expandExp);
     data.get(query)
       .then(function(data) {
         console.log(JSON.stringify(data));

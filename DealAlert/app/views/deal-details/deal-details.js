@@ -66,7 +66,12 @@ function attachEvents(element) {
 	});
 }
 
+function addComment(){
+	console.log('Add comment clicked');
+}
+
 exports.onNavigatedTo = onNavigatedTo;
 exports.onGoBackBtnTap = onGoBackBtnTap;
 exports.onTapCold = onTapCold;
 exports.onTapHot = onTapHot;
+exports.addComment = addComment;
