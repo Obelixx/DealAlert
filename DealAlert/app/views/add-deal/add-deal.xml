@@ -10,8 +10,8 @@
     </Page.actionBar>
     <ScrollView>
 
-        <GridLayout rows="auto, auto, auto, auto,auto,auto" columns="*, 2*" horizontalAlignment="center">
-            <Image id="pictureTaken" src="" tap="takePicture" stretch="none" row="0" colSpan="2"  />
+        <GridLayout rows="auto, auto, auto, auto,auto,auto" columns="*, 2*" >
+            <Image id="pictureTaken" src="" tap="takePicture" stretch="none" row="0" colSpan="2"  horizontalAlignment="center"/>
             <activity-indicator busy="{{ isLoading }}" row="1" colSpan="2" />
 
             <TextField hint="Title" text="{{ title }}" row="2" colSpan="2" />
