@@ -4,7 +4,6 @@ var config = require("../utils/config");
 
 function User() {
 
-    // You can add properties to observables on creation
     var viewModel = new Observable({
         email: "",
         displayName: "",

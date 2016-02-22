@@ -1,10 +1,10 @@
 <page loaded="pageLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
     <page.actionBar>
-        <action-bar title="Sign in" />
+        <action-bar title="Sign up" />
     </page.actionBar>
     <scroll-view>
         <stack-layout id="layout">
-            <image src="res://logo" stretch="none" horizontalAlignment="center" />
+            <image src="http://wonderopolis.org/wp-content/uploads/2010/11/Wonder-50-Chili-Pepper-Static-Image.jpg" stretch="none" horizontalAlignment="center" />
             <grid-layout rows="auto, auto,auto,auto">
                 <text-field text="{{ displayName }}" hint="Display Name" cssClass="form-field" returnKeyType="next" row="0" />
                 <text-field text="{{ userName }}" hint="User Name" cssClass="form-field" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" row="1" />

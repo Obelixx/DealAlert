@@ -29,6 +29,7 @@ function onRefreshBtnTap() {
 	model.getDeals();
 }
 
+
 function onLogoutBtnTap() {
 	console.log('logout button clicked');
 	user.logout().then(function() {

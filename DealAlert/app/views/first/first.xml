@@ -1,3 +1,6 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded" navigatedTo="onNavigatedTo">
-    <activity-indicator busy="isLoading" />
+    <StackLayout orientation="horizontal">
+        <Image src="https://www.bhmpics.com/wallpapers/red_chili-1920x1080.jpg" stretch="aspectFill" />
+        <activity-indicator busy="isLoading" />
+    </StackLayout>
 </Page>

@@ -27,6 +27,7 @@ function login() {
 		});
 }
 
+
 exports.pageLoaded = pageLoaded;
 exports.login = login;
 exports.register = navigation.goToRegisterPage;

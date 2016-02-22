@@ -4,7 +4,7 @@
     </page.actionBar>
     <scroll-view>
         <stack-layout id="layout">
-            <image src="res://logo" stretch="none" horizontalAlignment="center" />
+            <image src="http://bluesquaredisplays.com/wp-content/uploads/2015/05/Red-Hot-Chilli-colors-35260778-800-800-1024x428.jpg" stretch="none" horizontalAlignment="center" />
             <grid-layout rows="auto, auto">
                 <text-field id="email" text="{{ userName }}" hint="User Name" cssClass="form-field" keyboardType="email" returnKeyType="next" returnPress="focusPassword" autocorrect="false" autocapitalizationType="none" row="0" col="1" />
                 <text-field id="password" secure="true" text="{{ password }}" cssClass="form-field" hint="Password" returnKeyType="done" returnPress="login" row="1" />
