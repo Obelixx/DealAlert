@@ -9,23 +9,16 @@
         </ActionBar>
     </Page.actionBar>
     <ScrollView>
-        <StackLayout orientation="vertical">
-            <StackLayout orientation="horizontal">
-                <Image id="pictureTaken" src="" tap="takePicture" stretch="none" />
-                <activity-indicator busy="{{ isLoading }}" />
-            </StackLayout>
-            <StackLayout orientation="horizontal">
-                <Label text="Deal title" textWrap="true" />
-                <TextField hint="" text="{{ title }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none" />
-            </StackLayout>
-            <StackLayout orientation="horizontal">
-                <Label text="Description" textWrap="true" />
-                <TextField hint="" text="{{ description }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none" />
-            </StackLayout>
-            <StackLayout orientation="horizontal">
-                <Label text="Valid until" textWrap="true" />
-                <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}"></DatePicker>
-            </StackLayout>
-        </StackLayout>
+
+        <GridLayout rows="auto, auto, auto, auto,auto,auto" columns="*, 2*" horizontalAlignment="center">
+            <Image id="pictureTaken" src="" tap="takePicture" stretch="none" row="0" colSpan="2"  />
+            <activity-indicator busy="{{ isLoading }}" row="1" colSpan="2" />
+
+            <TextField hint="Title" text="{{ title }}" row="2" colSpan="2" />
+
+            <TextField hint="Description" text="{{ description }}" row="3" colSpan="2" />
+            <Label text="Validity" textWrap="true" row="4" col="0" verticalAlignment="center"/>
+            <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}" row="4" col="1"></DatePicker>
+        </GridLayout>
     </ScrollView>
 </Page>

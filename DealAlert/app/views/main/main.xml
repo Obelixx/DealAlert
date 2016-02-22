@@ -15,9 +15,12 @@
                 <DockLayout class="activity-listViewItem">
                     <Image dock="left" src="{{ PictureUrl }}" class="activity_picture" stretch="aspectFil" />
                     <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
+                    <Label dock="top" text="{{ HotColdRating }}" id="LabelHotColdRating" cssClass="hotText" />
+                    <StackLayout orientation="horizontal" dock="top">
+                        <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '}}" class="activity-price" />
+                        <Label dock="top" text="{{discount +'% discount'}}" class="activity-price-red" />
+                    </StackLayout>
                     <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
-                    <Label dock="top" text="{{ HotColdRating }}" id="LabelHotColdRating" />
-                    <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '+ discount +'% discount'}}" class="activity-price" />
                 </DockLayout>
             </ListView.itemTemplate>
         </ListView>
