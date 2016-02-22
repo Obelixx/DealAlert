@@ -9,11 +9,11 @@
     </Page.actionBar>
 
     <ScrollView>
-        <StackLayout>
-            <StackLayout id="stack">
+        <DockLayout>
+            <StackLayout id="stack" dock="top">
                 <Label text="{{ Title }}" class="title" />
                 <DockLayout stretchLastChild="false" id="dock">
-                    <Image dock="left" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" id="imageElement" />
+                    <Image dock="left" width="230" height="150" src="{{ PictureSrc }}" stretch="aspectFill" id="imageElement" />
                     <Label dock="top" text="{{ HotColdRating }}" textWrap="true" class="activity-hotColdStatus" />
                     <!--                 <Button dock="top" text="{{'Hot ('+ HotRating +')'}}" tap="onTapHot" class="activity-hot" /> -->
                     <Button dock="top" id="hotBtn" text="HOT" tap="onTapHot" class="activity-hot" />
@@ -23,17 +23,19 @@
                 <activity-indicator busy="{{ isLoading }}" rowSpan="2" />
                 <Label text="{{ Description }}" textWrap="true" class="activity-description" />
                 <Label text="{{'Valid until: '+ ValidUntil }}" textWrap="true" />
-                <Label text="{{ 'Promo price: '+ PromoPrice +'$'}}" textWrap="true" />
-                <Label text="{{ 'Regular price: '+ RegularPrice +'$'}}" textWrap="true" />
+                <StackLayout orientation="horizontal">
+                                    <Label text="{{ 'Promo price: '+ PromoPrice +'$ | '}}" textWrap="true" />
+                <Label text="{{ 'Reg. price: '+ RegularPrice +'$ | '}}" textWrap="true" />
                 <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
+                </StackLayout>
             </StackLayout>
-            <Label text="Comments" textWrap="true" class="comments-title"/>
-            
-            <ListView items="{{ Comments }}" loaded="onLoaded" itemLoading="onItemLoading" itemTap="onItemTap">
+            <Label text="Comments" textWrap="true" class="comments-title" dock="top"/>
+
+            <ListView items="{{ Comments }}" loaded="onLoaded" itemLoading="onItemLoading" itemTap="onItemTap" dock="top">
                 <ListView.itemTemplate>
-                    <Label text="{{' - ' + Text}}" textWrap="true" />
+                    <Label text="{{' - ' + Text }}" textWrap="true" />
                 </ListView.itemTemplate>
             </ListView>
-        </StackLayout>
+        </DockLayout>
     </ScrollView>
 </Page>

@@ -17,9 +17,11 @@ class DealDetailsModel extends observable.Observable {
         this.set("PictureUrl", "");
         this.set("PromoPrice", "");
         this.set("RegularPrice", "");
-                this.set("Comments", "");
+        this.set("Comments", "");
         this.set("isLoading", false);
         this.set("Discount", 0);
+        this.set("DealId", "");
+        this.set("NewComment", "");
 
     }
 
@@ -41,6 +43,7 @@ class DealDetailsModel extends observable.Observable {
         that.set("ColdRating", item.ColdRating);
         that.set("HotColdRating", item.HotColdRating);
         that.set("Comments", item.Comments);
+        that.set("DealId", item.Id);
     }
 
     onTapHot() {
@@ -53,12 +56,9 @@ class DealDetailsModel extends observable.Observable {
             function(data) {
                 that.set("HotRating", newRate);
                 that.updateRatingString();
-                //alert(JSON.stringify(data));
                 Toast.makeText('Heat added').show();
             },
-            function(error) {
-                //alert(JSON.stringify(error));
-            });
+            function(error) {});
 
     }
 
@@ -73,12 +73,36 @@ class DealDetailsModel extends observable.Observable {
                 that.set("ColdRating", newRate);
                 that.updateRatingString();
                 Toast.makeText('Cooled down').show();
-                //alert(JSON.stringify(data));
             },
-            function(error) {
-                //alert(JSON.stringify(error));
-            });
+            function(error) {});
+    }
 
+
+    addComment() {
+        var that = this;
+
+        return new Promise(function(resolve, reject) {
+            that.set('isLoading', true);
+
+            var table = dataProvider.data('Commnets');
+            table.create({
+                    'DealId': that.get("DealId"),
+                    'Text': that.get("NewComment")
+                },
+                function(data) {
+                    that.set('isLoading', false);
+
+                    //clear the fields after success
+                    that.set("DealId", "");
+                    that.set("NewComment", "");
+
+                    resolve();
+                },
+                function(error) {
+                    that.set('isLoading', false);
+                    reject(error.message);
+                });
+        });
     }
 
     updateRatingString() {
@@ -99,6 +123,5 @@ class DealDetailsModel extends observable.Observable {
         }
     }
 }
-
 
 module.exports.detailModel = new DealDetailsModel();
