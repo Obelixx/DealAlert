@@ -2,6 +2,8 @@
 
 var observable = require("data/observable");
 var dataProvider = require("../dataProviders/everlive");
+var Toast = require("nativescript-toast");
+
 
 var moment = require("moment");
 var that;
@@ -42,7 +44,7 @@ class DealDetailsModel extends observable.Observable {
 
     onTapHot() {
         let newRate = that.get("HotRating");
-        newRate += 1;
+        newRate += 10;
         dataProvider.data('Deals').updateSingle({
                 Id: that.get("Id"),
                 'HotRating': newRate
@@ -51,6 +53,7 @@ class DealDetailsModel extends observable.Observable {
                 that.set("HotRating", newRate);
                 that.updateRatingString();
                 //alert(JSON.stringify(data));
+                Toast.makeText('Heat added').show();
             },
             function(error) {
                 //alert(JSON.stringify(error));
@@ -60,7 +63,7 @@ class DealDetailsModel extends observable.Observable {
 
     onTapCold(args) {
         let newRate = that.get("ColdRating");
-        newRate += 1;
+        newRate += 10;
         dataProvider.data('Deals').updateSingle({
                 Id: that.get("Id"),
                 'ColdRating': newRate
@@ -68,6 +71,7 @@ class DealDetailsModel extends observable.Observable {
             function(data) {
                 that.set("ColdRating", newRate);
                 that.updateRatingString();
+                Toast.makeText('Cooled down').show();
                 //alert(JSON.stringify(data));
             },
             function(error) {
@@ -80,10 +84,14 @@ class DealDetailsModel extends observable.Observable {
         if (!isNaN(that.get("HotRating") - that.get("ColdRating"))) {
             that.set("HotColdRating", (that.get("HotRating") - that.get("ColdRating")) + "");
 
-            if (that.get("HotColdRating") > 0) {
-                that.set("HotColdRating", (that.get("HotColdRating") + "° it is HOT offer"));
+            if (that.get("HotColdRating") > 300) {
+                that.set("HotColdRating", (that.get("HotColdRating") + "° Freaking HOT"));
+            } else if (that.get("HotColdRating") > 100) {
+                that.set("HotColdRating", (that.get("HotColdRating") + "° HOT"));
             } else if (that.get("HotColdRating") < 0) {
-                that.set("HotColdRating", (that.get("HotColdRating") + "° it is COLD offer"));
+                that.set("HotColdRating", (that.get("HotColdRating") + "° COLD"));
+            } else if (that.get("HotColdRating") < -100) {
+                that.set("HotColdRating", (that.get("HotColdRating") + "° Stone COLD"));
             } else {
                 that.set("HotColdRating", (that.get("HotColdRating") + "°"));
             }

@@ -34,15 +34,19 @@ class Deals extends observable.Observable {
             if (!isNaN(newItem.HotRating - newItem.ColdRating)) {
               newItem.HotColdRating = (newItem.HotRating - newItem.ColdRating) + "";
 
-              if (newItem.HotColdRating > 0) {
-                newItem.HotColdRating += '° it is HOT offer';
+              if (newItem.HotColdRating > 300) {
+                newItem.HotColdRating += "° Freaking HOT";
+              } else if (newItem.HotColdRating > 100) {
+                newItem.HotColdRating += '° HOT';
               } else if (newItem.HotColdRating < 0) {
-                newItem.HotColdRating += '° it is COLD offer';
+                newItem.HotColdRating += '° COLD';
+              } else if (newItem.HotColdRating < -100) {
+                newItem.HotColdRating += '° Stone COLD';
               } else {
                 newItem.HotColdRating += '°';
               }
             }
-            
+
             that.dealItems.push(newItem);
           }
         },
@@ -55,5 +59,6 @@ class Deals extends observable.Observable {
     navigation.goToDealDetailsPage(this.dealItems.getItem(item.index));
   }
 }
+
 
 module.exports.Deals = new Deals();

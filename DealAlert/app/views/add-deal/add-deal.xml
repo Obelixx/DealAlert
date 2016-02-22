@@ -1,35 +1,31 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" loaded="pageLoaded">
-  <page.actionBar>
-        <action-bar title="Add New Deal" />
-  </page.actionBar>
-
-  <ScrollView>
-    <StackLayout orientation="horizontal" stretch="">
-    	<StackLayout orientation="vertical">
-
-        <Image id="pictureTaken" src="" stretch ="none" />
-        <Button text="Take picture" tap="takePicture" />
-        <activity-indicator busy="{{ isLoading }}" />
-        
-    		<Label text="Deal title" textWrap="true" />
-    		<TextField hint="" text="{{ title }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none"/>
-
-    		<Label text="Description" textWrap="true" />
-    		<TextField hint="" text="{{ description }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none"/>
-
-    		<Label text="Valid until" textWrap="true" />
-        <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}"></DatePicker>
-
-        <StackLayout orientation="horizontal">
-          <Button text="Cancel" tap="cancel" />
-          <Button text="Save" tap="addDeal" />
+    <Page.actionBar>
+        <ActionBar title="Add New Deal" icon="">
+            <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="onGoBackBtnTap" />
+            <ActionBar.actionItems>
+                <ActionItem icon="" text="Cancel" tap="cancel" ios.position="left" />
+                <ActionItem icon="" text="Save" tap="addDeal" ios.position="right" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+    <ScrollView>
+        <StackLayout orientation="vertical">
+            <StackLayout orientation="horizontal">
+                <Image id="pictureTaken" src="" tap="takePicture" stretch="none" />
+                <activity-indicator busy="{{ isLoading }}" />
+            </StackLayout>
+            <StackLayout orientation="horizontal">
+                <Label text="Deal title" textWrap="true" />
+                <TextField hint="" text="{{ title }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none" />
+            </StackLayout>
+            <StackLayout orientation="horizontal">
+                <Label text="Description" textWrap="true" />
+                <TextField hint="" text="{{ description }}" returnKeyType="next" returnPress="focusPassword" autocorrect="true" autocapitalizationType="none" />
+            </StackLayout>
+            <StackLayout orientation="horizontal">
+                <Label text="Valid until" textWrap="true" />
+                <DatePicker day="{{ day }}" month="{{ month }}" year="{{ year }}"></DatePicker>
+            </StackLayout>
         </StackLayout>
-
-    	</StackLayout>
-    </StackLayout>
-   </ScrollView>
+    </ScrollView>
 </Page>
-
-
-
-

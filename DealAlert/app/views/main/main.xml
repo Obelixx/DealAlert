@@ -1,27 +1,25 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded">
-<Page.actionBar>
-    <ActionBar title="All Deals" icon="">
-      <NavigationButton text="Back" icon="" tap="" />
-      <ActionBar.actionItems>
-        <ActionItem icon="" text="Left" tap="" ios.position="left" />
-        <ActionItem icon="" text="Add" tap="onAddNavBtnTap" ios.position="right" />
-      </ActionBar.actionItems>
-    </ActionBar>
-</Page.actionBar>
-  <DockLayout stretchLastChild="true">
-      
-	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
-            <ListView.itemTemplate >
-              <DockLayout class="activity-listViewItem">
-                  <Image dock="left" src="{{ PictureUrl }}" class="activity_picture"  stretch="aspectFil"  />  
-                  <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
-                  <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
-
-                  <Label dock="top" text="{{ HotColdRating }}" id="LabelHotColdRating"/>
-
-                  <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '+ discount +'% discount'}}" class="activity-price" />
-              </DockLayout>
-            </ListView.itemTemplate>  
-      </ListView>
-	</DockLayout>
+    <Page.actionBar>
+        <ActionBar title="All Deals" icon="">
+            <NavigationButton text="Go Back" icon="" tap="" />
+            <ActionBar.actionItems>
+                <ActionItem icon="" text="Settings" tap="" ios.position="left" />
+                <ActionItem ios.systemIcon="4" android.systemIcon="ic_menu_add" android.position="actionBarIfRoom" tap="onAddNavBtnTap" />
+                <ActionItem ios.systemIcon="13" android.systemIcon="ic_menu_refresh" android.position="actionBarIfRoom" tap="onRefreshBtnTap" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+    <DockLayout stretchLastChild="true">
+        <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
+            <ListView.itemTemplate>
+                <DockLayout class="activity-listViewItem">
+                    <Image dock="left" src="{{ PictureUrl }}" class="activity_picture" stretch="aspectFil" />
+                    <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
+                    <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
+                    <Label dock="top" text="{{ HotColdRating }}" id="LabelHotColdRating" />
+                    <Label dock="top" text="{{'Now for: '+ PromoPrice +'$ | '+ discount +'% discount'}}" class="activity-price" />
+                </DockLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </DockLayout>
 </Page>

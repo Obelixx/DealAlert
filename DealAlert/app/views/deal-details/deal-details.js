@@ -12,7 +12,7 @@ function onNavigatedTo(args) {
 	model.loadItem(args.context);
 }
 
-function onNavBtnTap(){
+function onGoBackBtnTap(){
 	navigation.goBack();
 }
 
@@ -24,8 +24,7 @@ function onTapHot(){
 	model.onTapHot();
 }
 
-
 exports.onNavigatedTo = onNavigatedTo;
-exports.onNavBtnTap = onNavBtnTap;
+exports.onGoBackBtnTap = onGoBackBtnTap;
 exports.onTapCold = onTapCold;
 exports.onTapHot = onTapHot;

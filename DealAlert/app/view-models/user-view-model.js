@@ -20,6 +20,7 @@ function User() {
 
                 dataProvider.authentication.login(viewModel.get('userName'), viewModel.get('password'),
                     function(data) {
+                        console.log(JSON.stringify(data));
                         viewModel.isLoading = false;
                         viewModel.userName = "";
                         viewModel.password = "";
@@ -71,8 +72,6 @@ function User() {
     };
 
     viewModel.isUserLoggedIn = function() {
-        console.log('entering isUserLoggedIn');
-        
         var promise = new Promise(function(resolve, reject) {
             dataProvider.users.currentUser(
                 function(data) { // success callback

@@ -1,33 +1,28 @@
 <Page xmlns="http://www.nativescript.org/tns.xsd" navigatedTo="onNavigatedTo">
-  <Page.actionBar>
-    <ActionBar title="Deal details" icon="">
-	 <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="onNavBtnTap"/>
-      <ActionBar.actionItems>
-        <ActionItem icon="" text="Left" tap="" ios.position="left" />
-        <ActionItem icon="" text="Right" tap="" ios.position="right" />
-      </ActionBar.actionItems>
-    </ActionBar>
-</Page.actionBar>
-  <ScrollView>
-	  <StackLayout>
-	  	<Label text="{{ Title }}" class="title"/>
-	  	<DockLayout stretchLastChild="false">
-	  		<Image dock="left" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" />
-	  		<Label dock="top" text="{{ HotColdRating }}" textWrap="true" class="activity-hotColdStatus" />
-	    	<Button dock="top" text="{{'Hot ('+ HotRating +')'}}" tap="onTapHot" class="activity-hot" />
-	    	<Button dock="top" text="{{'Cold ('+ ColdRating +')'}}" tap="onTapCold" class="activity-cold" />
-
-	    	
-	    </DockLayout>
-	  	
-	   	<activity-indicator busy="{{ isLoading }}" rowSpan="2" />
-	   	<Label text="{{ Description }}" textWrap="true" class="activity-description" />
-	    <Label text="{{'Valid until: '+ ValidUntil }}" textWrap="true" />
-	    <Label text="{{ 'Promo price: '+ PromoPrice +'$'}}" textWrap="true" />
-	    <Label text="{{ 'Regular price: '+ RegularPrice +'$'}}" textWrap="true" />
-	    <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
-	    
-	    
-	  </StackLayout>
-  </ScrollView>
+    <Page.actionBar>
+        <ActionBar title="Deal details" icon="">
+            <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" tap="onGoBackBtnTap" />
+            <ActionBar.actionItems>
+                <ActionItem icon="" text="Left" tap="" ios.position="left" />
+                <ActionItem icon="" text="Right" tap="" ios.position="right" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+    <ScrollView>
+        <StackLayout>
+            <Label text="{{ Title }}" class="title" />
+            <DockLayout stretchLastChild="false">
+                <Image dock="left" width="200" height="200" src="{{ PictureSrc }}" stretch="aspectFill" />
+                <Label dock="top" text="{{ HotColdRating }}" textWrap="true" class="activity-hotColdStatus" />
+                <Button dock="top" text="{{'Hot ('+ HotRating +')'}}" tap="onTapHot" class="activity-hot" />
+                <Button dock="top" text="{{'Cold ('+ ColdRating +')'}}" tap="onTapCold" class="activity-cold" />
+            </DockLayout>
+            <activity-indicator busy="{{ isLoading }}" rowSpan="2" />
+            <Label text="{{ Description }}" textWrap="true" class="activity-description" />
+            <Label text="{{'Valid until: '+ ValidUntil }}" textWrap="true" />
+            <Label text="{{ 'Promo price: '+ PromoPrice +'$'}}" textWrap="true" />
+            <Label text="{{ 'Regular price: '+ RegularPrice +'$'}}" textWrap="true" />
+            <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
+        </StackLayout>
+    </ScrollView>
 </Page>

@@ -4,6 +4,7 @@ var navigation = require("../../utils/navigation");
 var UserViewModel = require("../../view-models/user-view-model");
 var view = require("ui/core/view");
 var activityIndicatorModule = require("ui/activity-indicator");
+var Toast = require("nativescript-toast");
 
 var user = new UserViewModel();
 
@@ -20,11 +21,13 @@ function pageLoaded(args) {
 	}, isUserLoggedIn());
 }
 
-function isUserLoggedIn(){
-user.isUserLoggedIn().then(function() {
+function isUserLoggedIn() {
+	user.isUserLoggedIn().then(function() {
+			Toast.makeText('User is logged in').show();
 			navigation.goToMainPage();
 		},
 		function(error) {
+			Toast.makeText('Please sign in!').show();
 			navigation.goToLoginPage();
 		});
 }

@@ -1,11 +1,12 @@
-'use strict';
-
 var addDealViewModel = require("../../view-models/add-detail-view-model");
 var navigation = require("../../utils/navigation");
 var model = new addDealViewModel();
 var cameraModule = require("camera");
 var imageModule = require("ui/image");
 var view = require('ui/core/view');
+var Toast = require("nativescript-toast");
+var dialogsModule = require("ui/dialogs");
+
 var image;
 
 function pageLoaded(args) {
@@ -18,11 +19,11 @@ function pageLoaded(args) {
 function addDeal() {
 	console.log('clicked');
 	model.addItem().then(function() {
-			//TODO TOAST
+			Toast.makeText('New deal added').show();
 			navigation.goToMainPage();
 		},
 		function(error) {
-			console.log(error);
+			alert(error);
 		});
 }
 
@@ -42,7 +43,12 @@ function cancel() {
 	navigation.goToMainPage();
 }
 
+function onGoBackBtnTap() {
+	navigation.goBack();
+}
+
 exports.pageLoaded = pageLoaded;
 exports.takePicture = takePicture;
 exports.addDeal = addDeal;
 exports.cancel = cancel;
+exports.onGoBackBtnTap = onGoBackBtnTap;

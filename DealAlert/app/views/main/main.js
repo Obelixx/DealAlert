@@ -22,6 +22,13 @@ function onAddNavBtnTap() {
 	navigation.goToAddDealPage();
 }
 
+function onRefreshBtnTap() {
+	model.dealItems.splice(0, model.dealItems.length);
+	model.getDeals();
+}
+
+
 exports.pageLoaded = pageLoaded;
 exports.onItemTap = onItemTap;
 exports.onAddNavBtnTap = onAddNavBtnTap;
+exports.onRefreshBtnTap = onRefreshBtnTap;
