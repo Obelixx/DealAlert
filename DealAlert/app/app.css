@@ -22,11 +22,11 @@
 	padding: 10;
 }
 
-
 .title {
-    font-size: 30;
-    horizontal-align: center;
-    margin: 20;
+    font-size: 20;
+    horizontal-align: left;
+    font-weight: bold;
+    margin: 10;
 }
 
 .link {
@@ -70,12 +70,6 @@
 
 .ios-form-button {
     margin: 12 6;
-}
-
-.title {
-    font-size: 30;
-    horizontal-align: center;
-    margin: 20;
 }
 
 .message {

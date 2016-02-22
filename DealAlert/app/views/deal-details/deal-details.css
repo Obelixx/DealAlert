@@ -38,6 +38,7 @@
 .activity-hotColdStatus {
     font-size: 20;
     text-align: center;
+        color: #4d0000;
 }
 
 .comment-text {
@@ -47,4 +48,10 @@
 .comment-name {
     color: #E91E63;
     font-size: 13;
+}
+
+.comments-title{
+    margin-top: 5;
+        font-size: 15;
+    font-weight: bold;
 }

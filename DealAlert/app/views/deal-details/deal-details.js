@@ -1,9 +1,8 @@
-'use strict';
-
 var navigation = require("../../utils/navigation");
 var vmModule = require("../../view-models/deal-details-page-view-model");
 var view = require("ui/core/view");
 var progressModule = require("ui/progress");
+var dialogs = require("ui/dialogs");
 var model = vmModule.detailModel;
 var hotButton;
 var coldButton;
@@ -62,7 +61,28 @@ function attachEvents(element) {
 	});
 }
 
+function addComment(){
+	console.log('Add comment clicked');
+
+	dialogs.prompt({
+	  title: "Add new comment",
+	  okButtonText: "Save",
+	  cancelButtonText: "Cancel",
+  	  defaultText: ""
+	}).then(function (r) {
+		model.NewComment = r.text;
+	  	console.log(model.NewComment);
+	  	model.addComment().then(function() {
+		Toast.makeText('Comment added').show();
+		},
+		function(error) {
+			alert(error);
+		});
+	});
+}
+
 exports.onNavigatedTo = onNavigatedTo;
 exports.onGoBackBtnTap = onGoBackBtnTap;
 exports.onTapCold = onTapCold;
 exports.onTapHot = onTapHot;
+exports.addComment = addComment;
