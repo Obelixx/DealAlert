@@ -4,7 +4,7 @@
       <NavigationButton text="Back" icon="" tap="" />
       <ActionBar.actionItems>
         <ActionItem icon="" text="Left" tap="" ios.position="left" />
-        <ActionItem icon="" text="Right" tap="" ios.position="right" />
+        <ActionItem icon="" text="Add" tap="onAddNavBtnTap" ios.position="right" />
       </ActionBar.actionItems>
     </ActionBar>
 </Page.actionBar>
@@ -13,7 +13,7 @@
 	    <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
             <ListView.itemTemplate >
               <DockLayout class="activity-listViewItem">
-                  <Image dock="left" src="{{ pictureUrl }}" class="activity_picture"  stretch="aspectFil"  />  
+                  <Image dock="left" src="{{ PictureUrl }}" class="activity_picture"  stretch="aspectFil"  />  
                   <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
                   <Label dock="top" text="{{ Description }}" cssClass="activity-description" />
 

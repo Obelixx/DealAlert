@@ -13,6 +13,7 @@ class DealDetailsModel extends observable.Observable {
         this.set("Title", "");
         this.set("Description", "");
         this.set("ValidUntil", "");
+        this.set("PictureUrl", "");
         this.set("PromoPrice", "");
         this.set("RegularPrice", "");
         this.set("isLoading", false);
@@ -24,9 +25,9 @@ class DealDetailsModel extends observable.Observable {
         that = this;
         that.set("isLoading", true);
 
-        let pictureSrc = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + item.Picture + '/download';
+        // let pictureSrc = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + item.Picture + '/download';
         that.set("Id", item.Id);
-        that.set("PictureSrc", pictureSrc);
+        that.set("PictureSrc", item.PictureUrl);
         that.set("Title", item.Title);
         that.set("Description", item.Description);
         that.set("ValidUntil", moment(item.ValidUntil).format('MMM Do YY'));
@@ -76,18 +77,18 @@ class DealDetailsModel extends observable.Observable {
     }
 
     updateRatingString() {
-    if (!isNaN(that.get("HotRating") - that.get("ColdRating"))) {
-        that.set("HotColdRating", (that.get("HotRating") - that.get("ColdRating")) + "");
+        if (!isNaN(that.get("HotRating") - that.get("ColdRating"))) {
+            that.set("HotColdRating", (that.get("HotRating") - that.get("ColdRating")) + "");
 
-        if (that.get("HotColdRating") > 0) {
-            that.set("HotColdRating", (that.get("HotColdRating") + "° it is HOT offer"));
-        } else if (that.get("HotColdRating") < 0) {
-            that.set("HotColdRating", (that.get("HotColdRating") + "° it is COLD offer"));
-        } else {
-            that.set("HotColdRating", (that.get("HotColdRating") + "°"));
+            if (that.get("HotColdRating") > 0) {
+                that.set("HotColdRating", (that.get("HotColdRating") + "° it is HOT offer"));
+            } else if (that.get("HotColdRating") < 0) {
+                that.set("HotColdRating", (that.get("HotColdRating") + "° it is COLD offer"));
+            } else {
+                that.set("HotColdRating", (that.get("HotColdRating") + "°"));
+            }
         }
     }
-}
 }
 
 

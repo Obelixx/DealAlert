@@ -23,7 +23,7 @@ class Deals extends observable.Observable {
           for (var i = 0; i < itemCount; i++) {
             var newItem = data.result[i];
 
-            newItem.pictureUrl = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + data.result[i].Picture + '/download';
+            // newItem.pictureUrl = "https://api.everlive.com/v1/xw7rpl6g52f4b0sj/files/" + data.result[i].Picture + '/download';
 
             // calculations
             newItem.discount = Math.round(100 / newItem.RegularPrice * (newItem.RegularPrice - newItem.PromoPrice));
