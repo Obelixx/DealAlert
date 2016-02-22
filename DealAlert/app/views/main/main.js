@@ -1,9 +1,11 @@
-'use strict';
-
-var vmModule = require("../../view-models/main-view-model");
+var MainViewModel = require("../../view-models/main-view-model");
 var viewModule = require('ui/core/view');
-var model = vmModule.Deals;
 var navigation = require("../../utils/navigation");
+var UserViewModel = require("../../view-models/user-view-model");
+var Toast = require("nativescript-toast");
+
+var model = MainViewModel.Deals;
+var user = new UserViewModel();
 
 function pageLoaded(args) {
 	var page = args.object;
@@ -27,7 +29,19 @@ function onRefreshBtnTap() {
 	model.getDeals();
 }
 
+function onLogoutBtnTap() {
+	console.log('logout button clicked');
+	user.logout().then(function() {
+			Toast.makeText('User is logged out').show();
+			navigation.goToLoginPage();
+		},
+		function(error) {
+			alert(error);
+		});
+}
+
 exports.pageLoaded = pageLoaded;
 exports.onItemTap = onItemTap;
 exports.onAddNavBtnTap = onAddNavBtnTap;
 exports.onRefreshBtnTap = onRefreshBtnTap;
+exports.onLogoutBtnTap = onLogoutBtnTap;

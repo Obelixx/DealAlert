@@ -1,16 +1,18 @@
 <page loaded="pageLoaded" xmlns="http://schemas.nativescript.org/tns.xsd">
-    <!-- 	<page.actionBar>
-		<action-bar title="Sign up" />
-	</page.actionBar> -->
+    <page.actionBar>
+        <action-bar title="Sign in" />
+    </page.actionBar>
     <scroll-view>
-        <stack-layout>
+        <stack-layout id="layout">
             <image src="res://logo" stretch="none" horizontalAlignment="center" />
-            <grid-layout rows="auto, auto">
-                <text-field text="{{ email }}" id="email" hint="Email Address" keyboardType="email" returnKeyType="next" returnPress="focusPassword" autocorrect="false" autocapitalizationType="none" row="0" />
-                <text-field text="{{ password }}" id="password" secure="true" hint="Password" returnKeyType="done" returnPress="register" row="1" />
-                <activity-indicator busy="{{ authenticating }}" rowSpan="2" />
+            <grid-layout rows="auto, auto,auto,auto">
+                <text-field text="{{ displayName }}" hint="Display Name" cssClass="form-field" returnKeyType="next" row="0" />
+                <text-field text="{{ userName }}" hint="User Name" cssClass="form-field" keyboardType="email" returnKeyType="next" autocorrect="false" autocapitalizationType="none" row="1" />
+                <text-field text="{{ email }}" hint="Email address" cssClass="form-field" returnKeyType="next" returnPress="focusPassword" row="2" />
+                <text-field secure="true" text="{{ password }}" cssClass="form-field" hint="Password" returnKeyType="done" returnPress="login" row="3" />
+                <activity-indicator busy="{{ isLoading }}" rowSpan="4" />
             </grid-layout>
-            <button text="Sign Up" id="sign-up-button" tap="register" />
+            <button text="Sign up" tap="register" class="link" />
         </stack-layout>
     </scroll-view>
 </page>

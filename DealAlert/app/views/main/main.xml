@@ -3,9 +3,9 @@
         <ActionBar title="All Deals" icon="">
             <NavigationButton text="Go Back" icon="" tap="" />
             <ActionBar.actionItems>
-                <ActionItem icon="" text="Settings" tap="" ios.position="left" />
                 <ActionItem ios.systemIcon="4" android.systemIcon="ic_menu_add" android.position="actionBarIfRoom" tap="onAddNavBtnTap" />
                 <ActionItem ios.systemIcon="13" android.systemIcon="ic_menu_refresh" android.position="actionBarIfRoom" tap="onRefreshBtnTap" />
+                <ActionItem android.position="popup" text="Logout" tap="onLogoutBtnTap" />
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>

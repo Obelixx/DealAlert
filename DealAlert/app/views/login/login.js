@@ -7,12 +7,10 @@ var user = new UserViewModel();
 
 function pageLoaded(args) {
 	user.isUserLoggedIn().then(function() {
-			//TODO TOAST
-
 			navigation.goToMainPage();
 		},
 		function(error) {
-			alert(error);
+			console.log(error);
 		});
 
 	var page = args.object;
@@ -21,8 +19,8 @@ function pageLoaded(args) {
 
 function login() {
 	user.login().then(function() {
-			Toast.makeText('User is logged in').show();
-			navigation.goToAddDealPage();
+			Toast.makeText('User signed in').show();
+			navigation.goToMainPage();
 		},
 		function(error) {
 			alert(error);

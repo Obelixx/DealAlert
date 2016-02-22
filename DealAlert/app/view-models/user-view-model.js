@@ -6,6 +6,8 @@ function User() {
 
     // You can add properties to observables on creation
     var viewModel = new Observable({
+        email: "",
+        displayName: "",
         userName: "",
         password: "",
         isLoading: false
@@ -39,11 +41,19 @@ function User() {
         var promise = new Promise(function(resolve, reject) {
             viewModel.isLoading = true;
 
-            dataProvider.Users.register(viewModel.userName, // username
-                viewModel.password, null,
+            dataProvider.Users.register(
+                viewModel.get('userName'),
+                viewModel.get('password'), {
+                    Email: viewModel.get('email'),
+                    DisplayName: viewModel.get('displayName')
+                },
                 function(data) { // success callback
                     viewModel.isLoading = false;
                     console.log(JSON.stringify(data));
+
+                    viewModel.set('email', '');
+                    viewModel.set('displayName', '');
+
                     resolve();
                 },
                 function(error) { // error callback
@@ -59,12 +69,12 @@ function User() {
     viewModel.logout = function() {
         var promise = new Promise(function(resolve, reject) {
             dataProvider.authentication.logout(
-                function() { // success callback
-                    console.log("Logout successful!");
+                function() {
+                    console.log('logout from user view model');
                     resolve();
                 },
-                function(error) { // error callback
-                    console.log("Failed to logout: " + err.message);
+                function(error) {
+                    console.log(error+'from user view model');
                     reject(error.message);
                 });
         });
