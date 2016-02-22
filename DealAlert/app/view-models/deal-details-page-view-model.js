@@ -4,7 +4,6 @@ var observable = require("data/observable");
 var dataProvider = require("../dataProviders/everlive");
 var Toast = require("nativescript-toast");
 
-
 var moment = require("moment");
 var that;
 
