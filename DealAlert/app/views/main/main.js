@@ -1,7 +1,7 @@
 'use strict';
 
 var vmModule = require("../../view-models/main-view-model");
-var view = require('ui/core/view');
+var viewModule = require('ui/core/view');
 var model = vmModule.Deals;
 var navigation = require("../../utils/navigation");
 
@@ -26,7 +26,6 @@ function onRefreshBtnTap() {
 	model.dealItems.splice(0, model.dealItems.length);
 	model.getDeals();
 }
-
 
 exports.pageLoaded = pageLoaded;
 exports.onItemTap = onItemTap;

@@ -10,7 +10,7 @@
         </ActionBar>
     </Page.actionBar>
     <DockLayout stretchLastChild="true">
-        <ListView dock="top" id="activitiesView" items="{{ dealItems }}" itemTap="onItemTap">
+        <ListView dock="top" id="dealsListView" items="{{ dealItems }}" itemTap="onItemTap">
             <ListView.itemTemplate>
                 <DockLayout class="activity-listViewItem">
                     <Image dock="left" src="{{ PictureUrl }}" class="activity_picture" stretch="aspectFil" />
