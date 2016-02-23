@@ -104,15 +104,13 @@ function User() {
     viewModel.resetPassword = function() {
         var promise = new Promise(function(resolve, reject) {
             dataProvider.Users.resetPassword({
-                    Email: viewModel.email
+                    Username: viewModel.get('userName')
                 },
                 function(data) { // success callback
-                    console.log(JSON.stringify(data));
                     resolve();
                 },
                 function(error) { // error callback
-                    console.log(JSON.stringify(error));
-                    reject(JSON.stringify(error));
+                    reject(error.message);
                 });
         });
         return promise;

@@ -3,6 +3,7 @@ var vmModule = require("../../view-models/deal-details-page-view-model");
 var view = require("ui/core/view");
 var progressModule = require("ui/progress");
 var dialogs = require("ui/dialogs");
+var Toast = require("nativescript-toast");
 // var dockModule = require("ui/layouts/dock-layout");
 // var stackModule = require("ui/layouts/stack-layout");
 var model = vmModule.detailModel;
@@ -22,7 +23,6 @@ function onNavigatedTo(args) {
 	model.loadItem(args.context);
 	attachEvents(imageElement);
 }
-
 
 function onGoBackBtnTap() {
 	navigation.goBack();
@@ -66,22 +66,23 @@ function attachEvents(element) {
 }
 
 function addComment(){
-	console.log('Add comment clicked');
-
 	dialogs.prompt({
 	  title: "Add new comment",
 	  okButtonText: "Save",
 	  cancelButtonText: "Cancel",
   	  defaultText: ""
 	}).then(function (r) {
-		model.NewComment = r.text;
-	  	console.log(model.NewComment);
-	  	model.addComment().then(function() {
-		Toast.makeText('Comment added').show();
-		},
-		function(error) {
-			alert(error);
-		});
+		if ( r.text === "") {
+			Toast.makeText('No text was entered as comment').show();
+		}else if(r.result){
+			model.NewComment = r.text;
+		  	model.addComment().then(function() {
+			Toast.makeText('Comment added').show();
+			},
+			function(error) {
+				alert(error);
+			});
+		}
 	});
 }
 
