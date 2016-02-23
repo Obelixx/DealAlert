@@ -13,14 +13,19 @@ function pageLoaded(args) {
 	var page = args.object;
 	page.bindingContext = model;
 
-	elementWithEvents = viewModule.getViewById(page, "listViewElement");
-	attachEvents(elementWithEvents);
+	if (global.connectivity.getConnectionType() === connectivity.connectionType.none) {
+		global.crash.play();
+		Toast.makeText("No internet connection.").show();
+	} else {
+		elementWithEvents = viewModule.getViewById(page, "listViewElement");
+		attachEvents(elementWithEvents);
 
-	if (model.dealItems.length === 0) {
-		model.getDeals();
+		if (model.dealItems.length === 0) {
+			model.getDeals();
+		}
+
+		global.engine.play();
 	}
-	
-	global.engine.play();
 }
 
 function onItemTap(args) {

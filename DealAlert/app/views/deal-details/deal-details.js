@@ -13,12 +13,17 @@ var imageElement;
 
 function onNavigatedTo(args) {
 	page = args.object;
-	hotButton = view.getViewById(page,"hotBtn");
-	coldButton = view.getViewById(page,"coldBtn");
-	imageElement = view.getViewById(page,"imageElement");
+	hotButton = view.getViewById(page, "hotBtn");
+	coldButton = view.getViewById(page, "coldBtn");
+	imageElement = view.getViewById(page, "imageElement");
 	page.bindingContext = model;
-	model.loadItem(args.context);
-	attachEvents(imageElement);
+	if (global.connectivity.getConnectionType() === connectivity.connectionType.none) {
+		global.crash.play();
+		Toast.makeText("No internet connection.").show();
+	} else {
+		model.loadItem(args.context);
+		attachEvents(imageElement);
+	}
 }
 
 function onGoBackBtnTap() {

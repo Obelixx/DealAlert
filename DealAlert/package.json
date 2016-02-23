@@ -6,6 +6,7 @@
     }
   },
   "dependencies": {
+    "add_permissions": "file:add_permissions",
     "dealsAlert-app-options": "file:app_options",
     "moment": "^2.11.2",
     "nativescript-sound": "^1.0.4",

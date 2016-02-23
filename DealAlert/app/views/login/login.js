@@ -6,15 +6,20 @@ var Toast = require("nativescript-toast");
 var user = new UserViewModel();
 
 function pageLoaded(args) {
-	user.isUserLoggedIn().then(function() {
-			navigation.goToMainPage();
-		},
-		function(error) {
-			console.log(error);
-		});
+	if (global.connectivity.getConnectionType() === connectivity.connectionType.none) {
+		global.crash.play();
+		Toast.makeText("No internet connection.").show();
+	} else {
+		user.isUserLoggedIn().then(function() {
+				navigation.goToMainPage();
+			},
+			function(error) {
+				console.log(error);
+			});
 
-	var page = args.object;
-	page.bindingContext = user;
+		var page = args.object;
+		page.bindingContext = user;
+	}
 }
 
 function login() {
