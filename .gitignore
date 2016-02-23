@@ -24,9 +24,9 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
-bower_components
-platforms
+DealAlert/node_modules/**
+DealAlert/app/bower_components/**
+DealAlert/platforms/**
 
 # Optional npm cache directory
 .npm
