@@ -22,12 +22,12 @@ function pageLoaded(args) {
 }
 
 function onItemTap(args) {
-	elementWithEvents.off(gestures.GestureTypes.swipe);
+	detachEvents();
 	model.onItemTap(args);
 }
 
 function onAddNavBtnTap() {
-	elementWithEvents.off(gestures.GestureTypes.swipe);
+	detachEvents();
 	navigation.goToAddDealPage();
 }
 
@@ -42,7 +42,7 @@ function onLogoutBtnTap() {
 	console.log('logout button clicked');
 	user.logout().then(function() {
 			Toast.makeText('User is logged out').show();
-			elementWithEvents.off(gestures.GestureTypes.swipe);
+			detachEvents();
 			navigation.goToLoginPage();
 		},
 		function(error) {
@@ -57,10 +57,22 @@ function attachEvents(elementWithEvents) {
 			elementWithEvents.off(gestures.GestureTypes.swipe);
 			navigation.goToAddDealPage();
 		}
-		if(args.direction == 8){
+	});
+
+	elementWithEvents.on("pan", function (args) {
+		if(args.deltaY >= 500)
+		{
+			console.log("refrsh");
+			detachEvents();
 			onRefreshBtnTap();
+			attachEvents(elementWithEvents);
 		}
 	});
+}
+
+function detachEvents() {
+	elementWithEvents.off(gestures.GestureTypes.swipe);
+	elementWithEvents.off(gestures.GestureTypes.pan);
 }
 
 exports.pageLoaded = pageLoaded;
