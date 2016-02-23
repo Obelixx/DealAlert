@@ -4,7 +4,7 @@ module.exports = {
 	goToLoginPage: function() {
 		var navigationEntry = {
 			moduleName: "views/login/login",
-			backstackVisible: false
+			clearHistory: true
 		};
 		frameModule.topmost().navigate(navigationEntry);
 	},
@@ -19,7 +19,11 @@ module.exports = {
 		frameModule.topmost().navigate("views/password/password");
 	},
 	goToMainPage: function() {
-		frameModule.topmost().navigate("views/main/main");
+		var navigationEntry = {
+			moduleName: "views/main/main",
+			clearHistory: true
+		};
+		frameModule.topmost().navigate(navigationEntry);
 	},
 	goToAddDealPage: function() {
 		var navigationEntry = {

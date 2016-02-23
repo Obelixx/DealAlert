@@ -7,7 +7,7 @@ var gestures = require("ui/gestures");
 
 var model = MainViewModel.Deals;
 var user = new UserViewModel();
-var elementWithEvents
+var elementWithEvents;
 
 function pageLoaded(args) {
 	var page = args.object;
@@ -76,7 +76,7 @@ function attachEvents(elementWithEvents) {
 	});
 
 	elementWithEvents.on("pan", function (args) {
-		if(args.deltaY >= 500)
+		if(args.deltaY >= 250)
 		{
 			console.log("refrsh");
 			detachEvents();

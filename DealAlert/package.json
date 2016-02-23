@@ -1,16 +1,16 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.DealAlert",
-    "tns-android": {
-      "version": "1.5.1"
-    }
-  },
-  "dependencies": {
-    "add_permissions": "file:add_permissions",
-    "dealsAlert-app-options": "file:app_options",
-    "moment": "^2.11.2",
-    "nativescript-sound": "^1.0.4",
-    "nativescript-toast": "^1.2.0",
-    "tns-core-modules": "1.5.2"
-  }
+	"nativescript": {
+		"id": "org.nativescript.DealAlert",
+		"tns-android": {
+			"version": "1.5.1"
+		}
+	},
+	"dependencies": {
+		"add_permissions": "file:add_permissions",
+		"dealsAlert-app-options": "file:app_options",
+		"moment": "^2.11.2",
+		"nativescript-sound": "^1.0.4",
+		"nativescript-toast": "^1.2.0",
+		"tns-core-modules": "1.5.2"
+	}
 }
