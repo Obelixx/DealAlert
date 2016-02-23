@@ -7,7 +7,6 @@
             </ActionBar.actionItems>
         </ActionBar>
     </Page.actionBar>
-
     <ScrollView>
         <DockLayout>
             <StackLayout id="stack" dock="top">
@@ -24,13 +23,12 @@
                 <Label text="{{ Description }}" textWrap="true" class="activity-description" />
                 <Label text="{{'Valid until: '+ ValidUntil }}" textWrap="true" />
                 <StackLayout orientation="horizontal">
-                                    <Label text="{{ 'Promo price: '+ PromoPrice +'$ | '}}" textWrap="true" />
-                <Label text="{{ 'Reg. price: '+ RegularPrice +'$ | '}}" textWrap="true" />
-                <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
+                    <Label text="{{ 'Promo price: '+ PromoPrice +'$ | '}}" textWrap="true" />
+                    <Label text="{{ 'Reg. price: '+ RegularPrice +'$ | '}}" textWrap="true" />
+                    <Label text="{{ 'Discount: '+ Discount +'%'}}" textWrap="true" />
                 </StackLayout>
             </StackLayout>
-            <Label text="Comments" textWrap="true" class="comments-title" dock="top"/>
-
+            <Label text="Comments" textWrap="true" class="comments-title" dock="top" />
             <ListView items="{{ Comments }}" loaded="onLoaded" itemLoading="onItemLoading" itemTap="onItemTap" dock="top">
                 <ListView.itemTemplate>
                     <Label text="{{' - ' + Text }}" textWrap="true" />

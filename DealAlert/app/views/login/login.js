@@ -1,4 +1,4 @@
-var dialogsModule = require("ui/dialogs");
+var dialogs = require("ui/dialogs");
 var navigation = require("../../utils/navigation");
 var UserViewModel = require("../../view-models/user-view-model");
 var Toast = require("nativescript-toast");
@@ -27,8 +27,29 @@ function login() {
 		});
 }
 
+function forgotPassword() {
+	dialogs.prompt({
+		title: "Enter username",
+		message: "A reset password link will be sent to the username email!",
+		okButtonText: "Save",
+		cancelButtonText: "Cancel",
+		defaultText: ""
+	}).then(function(r) {
+		if (r.text === "") {
+			Toast.makeText('No email was entered').show();
+		} else if (r.result) {
+			user.userName = r.text;
+			user.resetPassword().then(function() {
+					Toast.makeText('Email with reset link was sent').show();
+				},
+				function(error) {
+					alert(error);
+				});
+		}
+	});
+}
 
 exports.pageLoaded = pageLoaded;
 exports.login = login;
 exports.register = navigation.goToRegisterPage;
-exports.forgotPassword = navigation.goToPasswordPage;
+exports.forgotPassword = forgotPassword;

@@ -77,7 +77,6 @@ class DealDetailsModel extends observable.Observable {
             function(error) {});
     }
 
-
     addComment() {
         var that = this;
 
