@@ -22,7 +22,7 @@ class Deals extends observable.Observable {
     query.orderDesc('HotRating').expand(expandExp);
     data.get(query)
       .then(function(data) {
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
           var itemCount = data.result.length;
           for (var i = 0; i < itemCount; i++) {
             var newItem = data.result[i];

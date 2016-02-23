@@ -10,6 +10,7 @@ function pageLoaded(args) {
 			navigation.goToMainPage();
 		},
 		function(error) {
+			global.crash.play();
 			console.log(error);
 		});
 
@@ -23,6 +24,7 @@ function login() {
 			navigation.goToMainPage();
 		},
 		function(error) {
+			global.crash.play();
 			alert(error);
 		});
 }
@@ -36,13 +38,16 @@ function forgotPassword() {
 		defaultText: ""
 	}).then(function(r) {
 		if (r.text === "") {
+			global.crash.play();
 			Toast.makeText('No email was entered').show();
 		} else if (r.result) {
 			user.userName = r.text;
 			user.resetPassword().then(function() {
+					global.ting.play();
 					Toast.makeText('Email with reset link was sent').show();
 				},
 				function(error) {
+					global.crash.play();
 					alert(error);
 				});
 		}

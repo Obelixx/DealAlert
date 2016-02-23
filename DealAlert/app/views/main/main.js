@@ -19,22 +19,28 @@ function pageLoaded(args) {
 	if (model.dealItems.length === 0) {
 		model.getDeals();
 	}
+	
+	global.engine.play();
 }
 
 function onItemTap(args) {
 	detachEvents();
+	global.short.play();
 	model.onItemTap(args);
 }
 
 function onAddNavBtnTap() {
 	detachEvents();
+	global.short.play();
 	navigation.goToAddDealPage();
 }
 
 function onRefreshBtnTap() {
+	global.short.play();
 	Toast.makeText('Refreshing..').show();
 	model.dealItems.splice(0, model.dealItems.length);
 	model.getDeals();
+	global.engine.play();
 }
 
 
@@ -43,9 +49,11 @@ function onLogoutBtnTap() {
 	user.logout().then(function() {
 			Toast.makeText('User is logged out').show();
 			detachEvents();
+			global.short.play();
 			navigation.goToLoginPage();
 		},
 		function(error) {
+			global.crash.play();
 			alert(error);
 		});
 }

@@ -6,7 +6,6 @@ var imageModule = require("ui/image");
 var view = require('ui/core/view');
 var Toast = require("nativescript-toast");
 var dialogsModule = require("ui/dialogs");
-
 var image;
 
 function pageLoaded(args) {
@@ -19,10 +18,12 @@ function pageLoaded(args) {
 function addDeal() {
 	console.log('clicked');
 	model.addItem().then(function() {
+			global.ting.play();
 			Toast.makeText('New deal added').show();
 			navigation.goToMainPage();
 		},
 		function(error) {
+			global.crash.play();
 			alert(error);
 		});
 }
@@ -36,6 +37,7 @@ function takePicture() {
 		.then(function(picture) {
 			image.imageSource = picture;
 			model.picture = picture;
+			global.ting.play();
 		});
 }
 

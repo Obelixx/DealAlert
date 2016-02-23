@@ -27,24 +27,24 @@ function onGoBackBtnTap() {
 
 function onTapCold() {
 	coldButton.animate({ opacity: 1 })
+		.then(function () { global.short.play(); })
 	    .then(function () { return coldButton.animate({ scale: { x: 1.3, y: 1.3 } }); })
 	    .then(function () { return coldButton.animate({ scale: { x: 1, y: 1 } }); })
-	    .then(function () {
-	})
 	    .catch(function (e) {
-		console.log(e.message);
+	    	global.crash.play();
+			console.log(e.message);
 	});
 	model.onTapCold();
 }
 
 function onTapHot() {
 	hotButton.animate({ opacity: 1 })
+		.then(function () { global.ting.play(); })
 	    .then(function () { return hotButton.animate({ scale: { x: 1.3, y: 1.3 } }); })
 	    .then(function () { return hotButton.animate({ scale: { x: 1, y: 1 } }); })
-	    .then(function () {
-	})
 	    .catch(function (e) {
-		console.log(e.message);
+	    	global.crash.play();
+			console.log(e.message);
 	});
 	model.onTapHot();
 }
@@ -55,30 +55,34 @@ function attachEvents(element) {
 		if(element.height <= initial){
 			element.width *=1.6;
 			element.height *=1.6;
+			global.short.play();
 		}else{
 			element.width /=1.6;
 			element.height /=1.6;
+			global.short.play();
 		}
 	});
 }
 
-function addComment(){
+function addComment() {
 	dialogs.prompt({
-	  title: "Add new comment",
-	  okButtonText: "Save",
-	  cancelButtonText: "Cancel",
-  	  defaultText: ""
-	}).then(function (r) {
-		if ( r.text === "") {
+		title: "Add new comment",
+		okButtonText: "Save",
+		cancelButtonText: "Cancel",
+		defaultText: ""
+	}).then(function(r) {
+		if (r.text === "") {
 			Toast.makeText('No text was entered as comment').show();
-		}else if(r.result){
+		} else if (r.result) {
 			model.NewComment = r.text;
-		  	model.addComment().then(function() {
-			Toast.makeText('Comment added').show();
-			},
-			function(error) {
-				alert(error);
-			});
+			model.addComment().then(function() {
+					global.ting.play();
+					Toast.makeText('Comment added').show();
+				},
+				function(error) {
+					global.crash.play();
+					alert(error);
+				});
 		}
 	});
 }
