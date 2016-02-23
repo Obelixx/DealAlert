@@ -4,8 +4,7 @@ var view = require("ui/core/view");
 var progressModule = require("ui/progress");
 var dialogs = require("ui/dialogs");
 var Toast = require("nativescript-toast");
-// var dockModule = require("ui/layouts/dock-layout");
-// var stackModule = require("ui/layouts/stack-layout");
+
 var model = vmModule.detailModel;
 var hotButton;
 var coldButton;
@@ -16,8 +15,6 @@ function onNavigatedTo(args) {
 	page = args.object;
 	hotButton = view.getViewById(page,"hotBtn");
 	coldButton = view.getViewById(page,"coldBtn");
-	// dock = dockModule.getViewById(page,"dock");
-	// stack = stackModule.getViewById(page,"stack");
 	imageElement = view.getViewById(page,"imageElement");
 	page.bindingContext = model;
 	model.loadItem(args.context);

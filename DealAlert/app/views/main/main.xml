@@ -10,9 +10,9 @@
         </ActionBar>
     </Page.actionBar>
     <DockLayout stretchLastChild="true">
-        <ListView dock="top" id="dealsListView" items="{{ dealItems }}" itemTap="onItemTap">
+        <ListView dock="top" id="dealsListView" items="{{ dealItems }}" itemTap="onItemTap" id="listViewElement">
             <ListView.itemTemplate>
-                <DockLayout class="activity-listViewItem">
+                <DockLayout class="activity-listViewItem" >
                     <Image dock="left" src="{{ PictureUrl }}" class="activity_picture" stretch="aspectFil" />
                     <Label dock="top" text="{{ Title }}" cssClass="activity-title" textWrap="true" />
                     <Label dock="top" text="{{ HotColdRating }}" id="LabelHotColdRating" cssClass="hotText" />
