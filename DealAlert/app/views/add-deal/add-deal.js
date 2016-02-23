@@ -11,12 +11,12 @@ var image;
 function pageLoaded(args) {
 	var page = args.object;
 	page.bindingContext = model;
+
+	image = view.getViewById(page, "pictureTaken");
+	image.src = "http://static1.squarespace.com/static/5317b571e4b01396b757268a/535ed32ee4b05fe61b34b363/535ed32ee4b05fe61b34b368/1398722779508/photo-placeholder.png";
 	if (global.connectivity.getConnectionType() === connectivity.connectionType.none) {
 		global.crash.play();
 		Toast.makeText("No internet connection.").show();
-	} else {
-		image = view.getViewById(page, "pictureTaken");
-		image.src = "http://static1.squarespace.com/static/5317b571e4b01396b757268a/535ed32ee4b05fe61b34b363/535ed32ee4b05fe61b34b368/1398722779508/photo-placeholder.png";
 	}
 }
 
@@ -34,6 +34,7 @@ function addDeal() {
 }
 
 function takePicture() {
+	console.log("take picture");
 	cameraModule.takePicture({
 			width: 200,
 			height: 200,

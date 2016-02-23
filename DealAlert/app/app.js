@@ -1,5 +1,4 @@
 var application = require("application");
-var permissions = require("add_permissions");
 var sound = require("nativescript-sound");
 global.engine = sound.create("~/res/sounds/Engine.mp3");
 global.crash = sound.create("~/res/sounds/Crash.mp3");
