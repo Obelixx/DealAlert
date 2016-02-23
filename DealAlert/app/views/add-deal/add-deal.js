@@ -52,7 +52,7 @@ function cancel() {
 }
 
 function onGoBackBtnTap() {
-	navigation.goBack();
+	navigation.goToMainPage();
 }
 
 exports.pageLoaded = pageLoaded;

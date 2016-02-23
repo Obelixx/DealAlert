@@ -27,7 +27,7 @@ function onNavigatedTo(args) {
 }
 
 function onGoBackBtnTap() {
-	navigation.goBack();
+	navigation.goToMainPage();
 }
 
 function onTapCold() {
