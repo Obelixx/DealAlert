@@ -15,13 +15,16 @@ function register() {
 		.then(function(resolve) {
 				Toast.makeText('User ' + user.userName + ' registered').show();
 				user.login().then(function(resolve) {
+					global.ting.play();
 					Toast.makeText('User is logged in').show();
 				}, function(error) {
+					global.crash.play();
 					Toast.makeText(error).show();
 				});
 				navigation.goToMainPage();
 			},
 			function(error) {
+				global.crash.play();
 				Toast.makeText(error).show();
 			});
 }

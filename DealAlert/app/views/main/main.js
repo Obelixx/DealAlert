@@ -49,7 +49,7 @@ function onLogoutBtnTap() {
 	user.logout().then(function() {
 			Toast.makeText('User is logged out').show();
 			detachEvents();
-			global.short.play();
+			global.ting.play();
 			navigation.goToLoginPage();
 		},
 		function(error) {

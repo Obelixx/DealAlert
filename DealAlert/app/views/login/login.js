@@ -10,7 +10,6 @@ function pageLoaded(args) {
 			navigation.goToMainPage();
 		},
 		function(error) {
-			global.crash.play();
 			console.log(error);
 		});
 
