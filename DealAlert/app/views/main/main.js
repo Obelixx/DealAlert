@@ -48,6 +48,9 @@ function onRefreshBtnTap() {
 	global.engine.play();
 }
 
+function onGoBackBtnTap() {
+	navigation.goToMainPage();
+}
 
 function onLogoutBtnTap() {
 	console.log('logout button clicked');
