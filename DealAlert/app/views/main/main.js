@@ -7,16 +7,14 @@ var gestures = require("ui/gestures");
 
 var model = MainViewModel.Deals;
 var user = new UserViewModel();
-var attached = false;
+var elementWithEvents
 
 function pageLoaded(args) {
 	var page = args.object;
 	page.bindingContext = model;
 
-	var elementWithEvents = viewModule.getViewById(page, "listViewElement");
-	if (!attached) {
-		attachEvents(elementWithEvents);
-	}
+	elementWithEvents = viewModule.getViewById(page, "listViewElement");
+	attachEvents(elementWithEvents);
 
 	if (model.dealItems.length === 0) {
 		model.getDeals();
@@ -24,14 +22,17 @@ function pageLoaded(args) {
 }
 
 function onItemTap(args) {
+	elementWithEvents.off(gestures.GestureTypes.swipe);
 	model.onItemTap(args);
 }
 
 function onAddNavBtnTap() {
+	elementWithEvents.off(gestures.GestureTypes.swipe);
 	navigation.goToAddDealPage();
 }
 
 function onRefreshBtnTap() {
+	Toast.makeText('Refreshing..').show();
 	model.dealItems.splice(0, model.dealItems.length);
 	model.getDeals();
 }
@@ -41,6 +42,7 @@ function onLogoutBtnTap() {
 	console.log('logout button clicked');
 	user.logout().then(function() {
 			Toast.makeText('User is logged out').show();
+			elementWithEvents.off(gestures.GestureTypes.swipe);
 			navigation.goToLoginPage();
 		},
 		function(error) {
@@ -48,15 +50,14 @@ function onLogoutBtnTap() {
 		});
 }
 
-function attachEvents(element) {
-	element.on(gestures.GestureTypes.swipe, function(args) {
+function attachEvents(elementWithEvents) {
+	elementWithEvents.on(gestures.GestureTypes.swipe, function(args) {
 		//console.log(args.direction);
 		if(args.direction == 2){
-			element.off(gestures.GestureTypes.swipe);
+			elementWithEvents.off(gestures.GestureTypes.swipe);
 			navigation.goToAddDealPage();
 		}
 		if(args.direction == 8){
-			element.off(gestures.GestureTypes.swipe);
 			onRefreshBtnTap();
 		}
 	});
